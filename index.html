@@ -1946,31 +1946,7 @@
     <!-- /#page -->
   </div>
 
-  <script>
-    // Check if the user is logged in by checking the localStorage
-    function checkLoginStatus() {
-      const isLoggedIn = localStorage.getItem("isLoggedIn");
-
-      // If the user is not logged in, redirect to the login page
-      if (!isLoggedIn) {
-        window.location.href = "login.html";
-      }
-    }
-
-    // Logout function
-    function logout() {
-      // Clear login status from localStorage
-      localStorage.removeItem("isLoggedIn");
-
-      // Redirect to login page after logout
-      window.location.href = "login.html";
-    }
-
-    // Run the check on page load
-    window.onload = function () {
-      checkLoginStatus();
-    };
-  </script>
+ 
   <!-- /#wrapper -->
 
   <!-- Javascript -->
