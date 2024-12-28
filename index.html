@@ -52,24 +52,7 @@
         </div>
         <!-- Custom JavaScript for Login Check -->
 
-        <script>
-          // Custom JavaScript for Login Check
-          window.onload = function () {
-            const isLoggedIn = localStorage.getItem("isLoggedIn");
-
-            // If not logged in, redirect to login page
-            if (isLoggedIn !== "true") {
-              window.location.href = "login.html";
-            }
-          }
-
-          // Logout function to remove login status and redirect to login page
-          function logout() {
-            localStorage.removeItem("isLoggedIn");
-            window.location.href = "login.html";
-          }
-        </script>
-        <button onclick="logout()">Logout</button>
+       
         <!-- /preload -->
         <!-- section-menu-left -->
         <div class="section-menu-left">
