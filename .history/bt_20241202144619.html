@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farming Website</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom styling for the page */
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .hero-section {
+            background: url('https://www.example.com/farming-image.jpg') no-repeat center center;
+            background-size: cover;
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .card-columns {
+            column-count: 3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-success">
+        <a class="navbar-brand text-white" href="#">FarmLife</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link text-white" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div>
+            <h1>Welcome to FarmLife</h1>
+            <p>Your partner in sustainable farming solutions</p>
+            <a href="#services" class="btn btn-light btn-lg">Explore Services</a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="container my-5">
+        <h2 class="text-center mb-4">About Us</h2>
+        <p class="text-center">FarmLife is committed to providing innovative solutions for farmers. We offer expert
+            advice, quality products, and state-of-the-art farming technologies to enhance agricultural productivity.
+        </p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="container my-5">
+        <h2 class="text-center mb-4">Our Services</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://www.example.com/farming-service1.jpg" class="card-img-top" alt="Service 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Crop Consultation</h5>
+                        <p class="card-text">Expert consultation on crop planning and management to maximize yield and
+                            sustainability.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://www.example.com/farming-service2.jpg" class="card-img-top" alt="Service 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Farm Equipment</h5>
+                        <p class="card-text">Top-quality farming equipment for planting, harvesting, and processing your
+                            crops efficiently.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://www.example.com/farming-service3.jpg" class="card-img-top" alt="Service 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Sustainable Farming</h5>
+                        <p class="card-text">Sustainable farming practices that ensure environmental protection and
+                            long-term productivity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">What Our Clients Say</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-text">"FarmLife's consultation helped us increase our crop yield by 40%!
+                                Their advice on soil management was invaluable."</p>
+                            <footer class="blockquote-footer">John Doe, Farmer</footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-text">"Thanks to FarmLife, we now use eco-friendly practices that have not
+                                only increased productivity but also saved costs."</p>
+                            <footer class="blockquote-footer">Jane Smith, Organic Farmer</footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-text">"Their farm equipment is top-notch and has made our harvesting process
+                                so much faster and easier."</p>
+                            <footer class="blockquote-footer">Robert Brown, Farmer</footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-success text-white py-4 text-center">
+        <p>&copy; 2024 FarmLife. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

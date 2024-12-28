@@ -1,0 +1,440 @@
+}
+});
+});
+observerA.observe(relatedProductsContainerA);
+})();
+</script>
+<script>
+    async function sendPromotionEvent(dataCreativeName, dataCreativeSlot, dataPromotionName, dataPromotionId, dataProductHandle, gaEvent) {
+        if (dataProductHandle) {
+            var ecommerce = await getProductUsingHandle(dataProductHandle);
+            console.log('has');
+            dataLayer.push({
+                'pageType': 'Home Page',
+                'event': 'view_promotion',
+                'currency': 'INR',
+                'creative_name': `${dataCreativeName}`,
+                'creative_slot': `${dataCreativeSlot}`,
+                'promotion_id': `${dataPromotionId}`,
+                'promotion_name': `${dataPromotionName}`,
+                ecommerce
+            });
+        } else {
+            console.log('has not');
+            dataLayer.push({
+                'pageType': 'Home Page',
+                'event': `${gaEvent}`,
+                'currency': 'INR',
+                'creative_name': `${dataCreativeName}`,
+                'creative_slot': `${dataCreativeSlot}`,
+                'promotion_id': `${dataPromotionId}`,
+                'promotion_name': `${dataPromotionName}`,
+                ecommerce
+            });
+        }
+    }
+    async function getProductUsingHandle(dataProductHandle) {
+        var ecommerce = {
+            'items': []
+        };
+        let prodResp = await fetch(`/products/${dataProductHandle}.js`);
+        let jsonData = await prodResp.json();
+        var newItem = {
+            'item_id': jsonData.id,
+            'item_name': jsonData.title.replace(/['"]/g, ''),
+            'affiliation': jsonData.vendor.replace(/['"]/g, ''),
+            'coupon': '',
+            'discount': '',
+            'index': '0',
+            'item_brand': jsonData.vendor.replace(/['"]/g, ''),
+            'item_variant': jsonData.variants[0].public_title.replace(/['"]/g, ''),
+            'item_category': '',
+            'item_category2': '',
+            'item_category3': '',
+            'sku': jsonData.variants[0].sku,
+            'item_list_id': 'Promotion',
+            'item_list_name': 'Promotion',
+            'item_size': jsonData.variants[0].options[1],
+            'price': (jsonData.price * 0.01).toFixed(2),
+            'quantity': 1
+        };
+        ecommerce.items.push(newItem)
+        return ecommerce;
+    }
+    async function sendSelectEvent(slide) {
+        console.log(slide);
+        let dataUrl = slide.getAttribute('data-href-g4');
+        let dataCreativeName = slide.getAttribute('data-creative-name');
+        let dataCreativeSlot = slide.getAttribute('data-creative-slot');
+        let dataPromotionName = slide.getAttribute('data-promotion-name');
+        let dataPromotionId = slide.getAttribute('data-promotion-id');
+        let dataProductHandle = slide.getAttribute('data-product-handle');
+        await sendPromotionEvent(dataCreativeName, dataCreativeSlot, dataPromotionName, dataPromotionId, dataProductHandle, 'select_promotion');
+        window.location.href = dataUrl;
+    }
+</script>
+</div>
+<div id="shopify-section-template--17015321133218__72146547-7c87-4bf8-b533-8663b9f213cd" class="shopify-section">
+    <style>
+        /* Removing the scrollbar */
+        .grid-overflow-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hiding View All */
+        @media (max-width: 640px) {
+            .tw-featured-collection-view-all-btn {
+                display: none;
+            }
+        }
+
+        /* Style the tab */
+        #shopify-section-template--17015321133218__72146547-7c87-4bf8-b533-8663b9f213cd .tab-cont {
+            margin-bottom: 50px;
+            margin-top: 20px;
+        }
+
+        .tab {
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+
+
+        #shopify-section-template--17015321133218__72146547-7c87-4bf8-b533-8663b9f213cd .tablinks {
+            border: 1px solid;
+            background-color: white;
+            padding: 5px 10px;
+            border-radius: 16px;
+            margin: 0 5px;
+        }
+
+        #shopify-section-template--17015321133218__72146547-7c87-4bf8-b533-8663b9f213cd .tablinks.active {
+            background-color: black;
+            color: white;
+        }
+
+
+
+        /* Style the tab content */
+        /* .tabcontent {
+display: none;
+padding: 6px 12px;
+border: 1px solid #ccc;
+border-top: none;
+} */
+
+        @media only screen and (max-width: 640px) {
+            #shopify-section-template--17015321133218__72146547-7c87-4bf8-b533-8663b9f213cd .tab button {
+                font-size: 16px;
+                margin: 0 5px;
+            }
+
+            #shopify-section-template--17015321133218__72146547-7c87-4bf8-b533-8663b9f213cd .tab-cont {
+                margin-bottom: 20px;
+            }
+        }
+
+        @media(max-width:650px) {
+            .size-options-tw {
+                display: flex;
+                justify-content: center !important;
+                align-items: center;
+                width: 100%;
+                margin: auto;
+                flex-wrap: wrap;
+            }
+
+            .size-options-tw .linking-tw {
+                margin-left: 8px;
+            }
+        }
+    </style>
+
+    <div class="tab-cont">
+        <div class="tab">
+
+            <button class="tablinks  active" id="tab-SWEATERS-1"
+                onclick="tabChange('template--17015321133218__72146547-7c87-4bf8-b533-8663b9f213cd',event, 'SWEATERS-1','tab-SWEATERS-1')">
+                SWEATERS
+            </button>
+
+            <button class="tablinks  " id="tab-JACKETS-2"
+                onclick="tabChange('template--17015321133218__72146547-7c87-4bf8-b533-8663b9f213cd',event, 'JACKETS-2','tab-JACKETS-2')">
+                JACKETS
+            </button>
+
+            <button class="tablinks  " id="tab-SWEATSHIRTS-3"
+                onclick="tabChange('template--17015321133218__72146547-7c87-4bf8-b533-8663b9f213cd',event, 'SWEATSHIRTS-3','tab-SWEATSHIRTS-3')">
+                SWEATSHIRTS
+            </button>
+
+        </div>
+    </div>
+
+
+    <div id="SWEATERS-1" product-list="SWEATERS" class="tabcontent tab-active" style="display:block">
+        <div data-section-id="template--17015321133218__72146547-7c87-4bf8-b533-8663b9f213cd"
+            data-section-type="collection-grid">
+            <div class="page-width page-width--flush-small">
+                <div class="grid-overflow-wrapper">
+                    <div class="grid grid--uniform" data-aos="overflow__animation">
+                        <div class="grid__item grid-product small--one-half medium-up--one-quarter " data-aos="row-of-4"
+                            data-handle="core-lab-hazelnut-textured-sweater-4msw9063-04" data-category1='All Black'
+                            data-category2='all-inventory' data-category3='Festive-Drops'>
+
+                            <div class="grid-product__content">
+                                <div class="grid__item-image-wrapper">
+                                    <a href="/products/core-lab-hazelnut-textured-sweater-4msw9063-04"></a>
+                                    <div class="grid-product__image-mask"
+                                        product-handle="core-lab-hazelnut-textured-sweater-4msw9063-04"
+                                        style="cursor: pointer;"
+                                        onclick="navigatePdp('/products/core-lab-hazelnut-textured-sweater-4msw9063-04','core-lab-hazelnut-textured-sweater-4msw9063-04','All Black','all-inventory','Festive-Drops')">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        <div class="flits-wishlist-colection flits-wishlist-colection-style flits-wishlist-button-style "
+                                            style="display:none">
+                                            <a href="#"
+                                                class=" flits-wls-button flits-wls-two flits-wls-inactive flits-wls-desktop flits-wls-button-secondary flits-wls-button-full-width"
+                                                data-flits-product-id="8553937141922"
+                                                data-flits-product-title="Core Lab Hazelnut Textured Sweater"
+                                                data-flits-product-handle="core-lab-hazelnut-textured-sweater-4msw9063-04"
+                                                data-flits-product-image="//www.snitch.co.in/cdn/shop/files/32d1e432ca65bc92ef7554c5566b1bed_small.jpg?v=1733815747"
+                                                data-flits-customer-id="" data-flits-customer-email=""
+                                                data-tippy-content="Add to Wishlist">
+                                                <div class="flits-wls-icon-with-text ">
+                                                    <div class="flits-wls-icon-with-text-icon">
+                                                        <div class="flits-btn-effect">
+
+
+
+
+
+
+
+
+
+
+
+                                                            <svg class="heart-full flits-wls-icon-svg icon-svg--size-4 flits-wls-icon-svg-color-blue"
+                                                                viewBox="0 0 24 24" width="24" height="24"
+                                                                stroke="currentColor" stroke-width="2" fill="none"
+                                                                stroke-linecap="round" stroke-linejoin="round"
+                                                                class="css-i6dzq1">
+                                                                <path
+                                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                                                </path>
+                                                            </svg>
+
+
+
+                                                            <div class="flits-wls-effect-group">
+                                                                <span class="flits-wls-effect"></span>
+                                                                <span class="flits-wls-effect"></span>
+                                                                <span class="flits-wls-effect"></span>
+                                                                <span class="flits-wls-effect"></span>
+                                                                <span class="flits-wls-effect"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="flits-wls-count-btn">7</a>
+                                        </div>
+
+
+                                        <div class="image-wrap" style="height: 0; padding-bottom: 150.00000000000003%;">
+                                            <img loading="lazy" class='lazy' height="auto" width="100%"
+                                                data-src="//www.snitch.co.in/cdn/shop/files/32d1e432ca65bc92ef7554c5566b1bed.jpg?v=1733815747"
+                                                alt=""></div>
+                                        <div class="grid-product__secondary-image small--hide">
+                                            <img loading="lazy" class='lazy hover-image ' height="auto" width="100%"
+                                                data-src="//www.snitch.co.in/cdn/shop/files/e99dbb0d910ad98d0a0e960b77139446.jpg?v=1733815747"
+                                                alt="">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="grid-product__meta">
+                                        <div onclick="navigatePdp('/products/core-lab-hazelnut-textured-sweater-4msw9063-04','core-lab-hazelnut-textured-sweater-4msw9063-04','All Black','all-inventory','Festive-Drops')"
+                                            style="cursor: pointer;"
+                                            class="grid-product__title grid-product__title--body">Core Lab Hazelnut
+                                            Textured Sweater</div>
+                                        <div class="grid-product__price grid-product__price_tw ">INR 1,799
+                                        </div>
+
+                                        <div class="text-center size-options-tw ">
+
+
+
+
+
+                                            <div class="linking-tw text-link"
+                                                onclick="navigatePdp('/products/core-lab-hazelnut-textured-sweater-4msw9063-04?variant=45119596101794','core-lab-hazelnut-textured-sweater-4msw9063-04','All Black','all-inventory','Festive-Drops')">
+                                                <div class="variant-input" data-index="option" data-value="XS">
+                                                    <label for="ProductSelect--8553937141922-option-size-XS"
+                                                        class="customizedesign variant__button-label">XS</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="linking-tw text-link"
+                                                onclick="navigatePdp('/products/core-lab-hazelnut-textured-sweater-4msw9063-04?variant=45119596134562','core-lab-hazelnut-textured-sweater-4msw9063-04','All Black','all-inventory','Festive-Drops')">
+                                                <div class="variant-input" data-index="option" data-value="S">
+                                                    <label for="ProductSelect--8553937141922-option-size-S"
+                                                        class="customizedesign variant__button-label">S</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="linking-tw text-link"
+                                                onclick="navigatePdp('/products/core-lab-hazelnut-textured-sweater-4msw9063-04?variant=45119596167330','core-lab-hazelnut-textured-sweater-4msw9063-04','All Black','all-inventory','Festive-Drops')">
+                                                <div class="variant-input" data-index="option" data-value="M">
+                                                    <label for="ProductSelect--8553937141922-option-size-M"
+                                                        class="customizedesign variant__button-label">M</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="linking-tw text-link"
+                                                onclick="navigatePdp('/products/core-lab-hazelnut-textured-sweater-4msw9063-04?variant=45119596200098','core-lab-hazelnut-textured-sweater-4msw9063-04','All Black','all-inventory','Festive-Drops')">
+                                                <div class="variant-input" data-index="option" data-value="L">
+                                                    <label for="ProductSelect--8553937141922-option-size-L"
+                                                        class="customizedesign variant__button-label">L</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="linking-tw text-link"
+                                                onclick="navigatePdp('/products/core-lab-hazelnut-textured-sweater-4msw9063-04?variant=45119596232866','core-lab-hazelnut-textured-sweater-4msw9063-04','All Black','all-inventory','Festive-Drops')">
+                                                <div class="variant-input" data-index="option" data-value="XL">
+                                                    <label for="ProductSelect--8553937141922-option-size-XL"
+                                                        class="customizedesign variant__button-label">XL</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="linking-tw text-link"
+                                                onclick="navigatePdp('/products/core-lab-hazelnut-textured-sweater-4msw9063-04?variant=45119596265634','core-lab-hazelnut-textured-sweater-4msw9063-04','All Black','all-inventory','Festive-Drops')">
+                                                <div class="variant-input" data-index="option" data-value="XXL">
+                                                    <label for="ProductSelect--8553937141922-option-size-XXL"
+                                                        class="customizedesign variant__button-label">XXL</label>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid__item grid-product small--one-half medium-up--one-quarter " data-aos="row-of-4"
+                            data-handle="core-lab-black-textured-sweater-4msw9063-02" data-category1='All Black'
+                            data-category2='All Black' data-category3='all-inventory'>
+
+                            <div class="grid-product__content">
+                                <div class="grid__item-image-wrapper">
+                                    <a href="/products/core-lab-black-textured-sweater-4msw9063-02"></a>
+                                    <div class="grid-product__image-mask"
+                                        product-handle="core-lab-black-textured-sweater-4msw9063-02"
+                                        style="cursor: pointer;"
+                                        onclick="navigatePdp('/products/core-lab-black-textured-sweater-4msw9063-02','core-lab-black-textured-sweater-4msw9063-02','All Black','All Black','all-inventory')">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        <div class="flits-wishlist-colection flits-wishlist-colection-style flits-wishlist-button-style "
+                                            style="display:none">
+                                            <a href="#"
+                                                class=" flits-wls-button flits-wls-two flits-wls-inactive flits-wls-desktop flits-wls-button-secondary flits-wls-button-full-width"
+                                                data-flits-product-id="8553936814242"
+                                                data-flits-product-title="Core Lab Black Textured Sweater"
+                                                data-flits-product-handle="core-lab-black-textured-sweater-4msw9063-02"
+                                                data-flits-product-image="//www.snitch.co.in/cdn/shop/files/c4d9eb37419b31c031a2b88b80722d9c_small.jpg?v=1733815656"
+                                                data-flits-customer-id="" data-flits-customer-email=""
+                                                data-tippy-content="Add to Wishlist">
+                                                <div class="flits-wls-icon-with-text ">
+                                                    <div class="flits-wls-icon-with-text-icon">
+                                                        <div class="flits-btn-effect">
+
+
+
+
+
+
+
+
+
+
+
+                                                            <svg class="heart-full flits-wls-icon-svg icon-svg--size-4 flits-wls-icon-svg-color-blue"
+                                                                viewBox="0 0 24 24" width="24" height="24"
+                                                                stroke="currentColor" stroke-width="2" fill="none"
+                                                                stroke-linecap="round" stroke-linejoin="round"
+                                                                class="css-i6dzq1">
+                                                                <path
+                                                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                                                </path>
+                                                            </svg>
+
+
+
+                                                            <div class="flits-wls-effect-group">
+                                                                <span class="flits-wls-effect"></span>
+                                                                <span class="flits-wls-effect"></span>
+                                                                <span class="flits-wls-effect"></span>
+                                                                <span class="flits-wls-effect"></span>
+                                                                <span class="flits-wls-effect"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>

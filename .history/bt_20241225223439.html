@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Invoice Email</title>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <style>
+        .popup-form {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .popup-form input,
+        .popup-form textarea,
+        .popup-form button {
+            display: block;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="showEmailForm()">Send Invoice Email</button>
+
+    <script>
+        // Initialize EmailJS with your public key
+        emailjs.init('6MfX99cXhH1QfrUBL'); // Replace with your EmailJS public key
+
+        function showEmailForm() {
+            // Create and display the popup form dynamically
+            const popupForm = document.createElement('div');
+            popupForm.classList.add('popup-form');
+            popupForm.innerHTML = `
+                <div class="popup-content">
+                    <h3>Send Invoice Email</h3>
+                    <form id="emailForm">
+                        <label for="fromEmail">Your Email Address:</label>
+                        <input type="email" id="fromEmail" name="fromEmail" placeholder="Enter your email" required>
+                        
+                        <label for="email">Recipient Email Address:</label>
+                        <input type="email" id="email" name="email" placeholder="Enter recipient email" required>
+                        
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+
+                        <button type="submit">Send</button>
+                        <button type="button" id="closePopup">Cancel</button>
+                    </form>
+                </div>
+            `;
+            document.body.appendChild(popupForm);
+
+            // Close popup form on cancel button click
+            document.getElementById('closePopup').addEventListener('click', () => {
+                document.body.removeChild(popupForm);
+            });
+
+            // Handle form submission to send email
+            document.getElementById('emailForm').addEventListener('submit', async (event) => {
+                event.preventDefault();
+
+                const fromEmail = document.getElementById('fromEmail').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+
+                try {
+                    // Send email using EmailJS
+                    const response = await emailjs.send(
+                        'service_csqwqjz', // Your EmailJS service ID
+                        'template_lvm8ga9', // Your EmailJS template ID
+                        {
+                            from_email: fromEmail, // Email entered by the user (from email)
+                            to_email: email, // Email entered by the user (to email)
+                            subject: "Invoice for Your Booking", // Subject of the email
+                            message: message // Message entered by the user
+                        }
+                    );
+
+                    if (response.status === 200) {
+                        alert('Invoice sent successfully!');
+                        document.body.removeChild(popupForm);
+                    } else {
+                        alert('Failed to send invoice. Please try again.');
+                    }
+                } catch (error) {
+                    console.error('Error sending email:', error);
+                    alert('An error occurred while sending the invoice. Please try again later.');
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

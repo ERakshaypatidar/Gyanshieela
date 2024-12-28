@@ -1,0 +1,116 @@
+async function invoice(data) {
+const { jsPDF } = window.jspdf;
+const doc = new jsPDF({
+orientation: "portrait",
+unit: "px",
+format: [600, 800],
+});
+
+const defaultData = {
+receiptDate: new Date().toISOString().split('T')[0], // Current date
+receiptNo: `2024-${Math.floor(Math.random() * 1000)}`, // Random receipt number
+panNo: data?.panNo || "BSHGA9w792",
+customerName: data?.customerName || "ATUL NIGWAL",
+address: data?.address || "KHARGONE MADHYA PRADESH",
+mobileNo: data?.mobileNo || "827817872",
+gstNo: data?.gstNo || "782",
+customerId: data?.customerId || "9929",
+unitNo: data?.unitNo || "19",
+projectName: data?.projectName || "GYANSHILA",
+basePrice: data?.basePrice || "1000.00",
+locationCharges: data?.locationCharges || "190.00",
+discount: data?.discount || "7.00",
+bookingAmount: data?.bookingAmount || "1000.00",
+totalAmount: data?.totalAmount || "12000.00",
+paymentStartDate: data?.paymentStartDate || "2010-12-02",
+};
+
+// Box and Header
+const boxX = 40, boxY = 40, boxWidth = 520, boxHeight = 700, padding = 20;
+doc.rect(boxX, boxY, boxWidth, boxHeight);
+
+const contentX = boxX + padding, contentY = boxY + padding;
+let y = contentY;
+
+// Header
+doc.setFont("helvetica", "bold").setFontSize(16);
+doc.text("GYANSHEELA DEVELOPERS LTD.", boxX + boxWidth / 2, y, { align: "center" });
+y += 30;
+doc.setFontSize(14).text("INVOICE", boxX + boxWidth / 2, y, { align: "center" });
+
+// Customer and Receipt Details
+y += 40;
+doc.setFontSize(12).setFont("helvetica", "normal");
+doc.text(`Customer Name: ${defaultData.customerName}`, contentX, y);
+doc.text(`Address: ${defaultData.address}`, contentX, y + 20);
+doc.text(`Mobile No: ${defaultData.mobileNo}`, contentX, y + 40);
+doc.text(`GST No.: ${defaultData.gstNo}`, contentX, y + 60);
+
+doc.text(`RECEIPT DATE: ${defaultData.receiptDate}`, contentX + 260, y);
+doc.text(`RECEIPT No: ${defaultData.receiptNo}`, contentX + 260, y + 20);
+doc.text(`PAN NO: ${defaultData.panNo}`, contentX + 260, y + 40);
+doc.text(`Customer ID: ${defaultData.customerId}`, contentX + 260, y + 60);
+
+// Payment Details
+y += 100;
+doc.text(
+`Received with thanks a sum of Rs. ${defaultData.totalAmount} Vide RTGS/NEFT/IMPS No. 123456789 date:
+${defaultData.receiptDate}, towards unit no. ${defaultData.unitNo} in Project ${defaultData.projectName}.`,
+contentX, y, { maxWidth: boxWidth - 2 * padding }
+);
+
+// Table Header
+y += 60;
+const headers = ["Base Selling Price", "Preferred Location Charges", "Discount", "Booking Amount", "Total Amount",
+"Payment Start Date"];
+const dataRow = [
+defaultData.basePrice,
+defaultData.locationCharges,
+defaultData.discount,
+defaultData.bookingAmount,
+defaultData.totalAmount,
+defaultData.paymentStartDate,
+];
+const colWidths = [110, 110, 110, 110, 110, 110];
+
+let x = contentX;
+headers.forEach((header, i) => {
+doc.rect(x, y, colWidths[i], 25).text(header, x + 5, y + 17);
+x += colWidths[i];
+});
+
+// Table Data
+x = contentX;
+y += 25;
+dataRow.forEach((cell, i) => {
+doc.rect(x, y, colWidths[i], 25).text(String(cell), x + 5, y + 17);
+x += colWidths[i];
+});
+
+// Total Receipt Amount
+y += 40;
+doc.setFont("helvetica", "bold");
+doc.text(`TOTAL RECEIPT AMOUNT: Rs. ${defaultData.totalAmount}`, contentX, y);
+
+// Footer Notes
+y += 60;
+const notes = [
+"Thank you,",
+"M/S Gyansheela Developers Ltd.",
+"",
+"Authorised Signatory",
+"",
+"E&OE.",
+"1. The Receipt is subject to realization of Instrument.",
+"2. GST is charged as applicable.",
+"3. This Receipt is non-transferable without written consent of the Company.",
+"4. The customer liability towards the payment of dues shall be discharged on the date of credit of funds in the bank
+account of Gyansheela Developers Ltd.",
+];
+notes.forEach((note, i) => {
+doc.setFont("helvetica", "normal").text(note, contentX, y + i * 20, { maxWidth: boxWidth - 2 * padding });
+});
+
+// Save the PDF
+doc.save("invoice.pdf");
+}

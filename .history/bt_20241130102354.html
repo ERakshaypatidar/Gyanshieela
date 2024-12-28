@@ -1,0 +1,72 @@
+import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useState } from "react";
+import { Table } from "react-bootstrap";
+import { FaArrowUp, FaArrowDown } from "react-icons/fa";
+const tabData = [
+    { id: 1, name: "Geek1", age: 30 },
+    { id: 2, name: "Geek2", age: 25 },
+    { id: 3, name: "Geek3", age: 35 },
+    { id: 4, name: "Geek4", age: 28 },
+    { id: 5, name: "Geek5", age: 22 },
+    { id: 6, name: "Geek6", age: 40 }
+];
+function App() {
+    const [data, setData] = useState(tabData);
+    const [sort_Age, set_Sort_Age] = useState("age");
+    const [sort_Order, set_Sort_Order] = useState("asc");
+    const [sort_Msg, set_Sort_Msg] = useState("");
+    const sortFunction = (f) => {
+        if (f === "age") {
+            if (sort_Age === "age") {
+                set_Sort_Order(sort_Order === "asc" ? "desc" : "asc");
+                set_Sort_Msg(
+                    `Table is Sorted in ${sort_Order === 
+                        "asc" ? "Ascending" : "Descending"
+                    } Order`
+                );
+            } else {
+                set_Sort_Age("age");
+                set_Sort_Order("asc");
+                set_Sort_Msg(`Table is Sorted in Descending Order`);
+            }
+        } else {
+            set_Sort_Msg("Sorting is disabled for this column");
+        }
+        const sorted = [...data].sort((a, b) => {
+            const multi = sort_Order === "asc" ? 1 : -1;
+            return multi * (a["age"] - b["age"]);
+        });
+        setData(sorted);
+    };
+    return (
+        <div className="App">
+            <h1 style={{ color: "green" }}>GeeksforGeeks</h1>
+            <h3>Ascending and Descending Example 1</h3>
+            <p>{sort_Msg}</p>
+            <Table striped bordered hover>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th onClick={() => sortFunction("age")}>
+                            Age{" "}
+                            {sort_Age === "age" &&
+                                (sort_Order === "asc" ? 
+                                    <FaArrowUp /> : <FaArrowDown />)}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {data.map((item) => (
+                        <tr key={item.id}>
+                            <td>{item.id}</td>
+                            <td>{item.name}</td>
+                            <td>{item.age}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </Table>
+        </div>
+    );
+}
+export default App;

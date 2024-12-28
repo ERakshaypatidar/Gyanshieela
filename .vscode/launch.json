@@ -1,0 +1,11 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "UserLoginApplication",
+      "request": "launch",
+      "mainClass": "localhost:5055",
+      "projectName": ""
+    }
+  ]
+}

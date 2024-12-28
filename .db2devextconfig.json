@@ -1,0 +1,24 @@
+{
+    "index.html": {
+        "execute": {
+            "connectionOptions": "UseNewConnection",
+            "onSuccessOptions": "CommitOnComplete",
+            "onErrorOptions": "OnErrContinue",
+            "terminator": ";",
+            "currentSchema": "",
+            "currentPath": "",
+            "useUpperCaseOption": true
+        }
+    },
+    "AddBooking.html": {
+        "execute": {
+            "connectionOptions": "UseExistingConnection",
+            "onSuccessOptions": "CommitOnEachStmt",
+            "onErrorOptions": "OnErrContinue",
+            "terminator": ";",
+            "currentSchema": "",
+            "currentPath": "",
+            "useUpperCaseOption": true
+        }
+    }
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Background with Scrollable Pages</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* वीडियो को बैकग्राउंड में सेट करना */
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* वीडियो को बैकग्राउंड में रखने के लिए */
+        }
+
+        .section {
+            height: 100vh; /* प्रत्येक सेक्शन को पूरी स्क्रीन की ऊंचाई पर सेट करें */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .section-1 { background-color: rgba(0, 123, 255, 0.5); } /* नीला ट्रांसपेरेंट */
+        .section-2 { background-color: rgba(40, 167, 69, 0.5); } /* हरा ट्रांसपेरेंट */
+        .section-3 { background-color: rgba(255, 193, 7, 0.5); } /* पीला ट्रांसपेरेंट */
+    </style>
+</head>
+<body>
+
+    <!-- वीडियो बैकग्राउंड -->
+    <video class="video-bg" autoplay muted loop>
+        <source src="your-video.mp4" type="video/mp4">
+        <!-- बैकअप के लिए -->
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- सेक्शन 1 -->
+    <div class="section section-1">
+        <h1>Page 1: Welcome</h1>
+    </div>
+
+    <!-- सेक्शन 2 -->
+    <div class="section section-2">
+        <h1>Page 2: About Us</h1>
+    </div>
+
+    <!-- सेक्शन 3 -->
+    <div class="section section-3">
+        <h1>Page 3: Contact Us</h1>
+    </div>
+
+    <!-- Bootstrap JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

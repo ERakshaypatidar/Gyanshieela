@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Static and Non-Interactive Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .logo img {
+            max-height: 50px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navigation-links span {
+            margin: 0 10px;
+            color: #007bff;
+            cursor: default;
+            /* Makes it clear that links are not functional */
+        }
+
+        #preview {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .static-content {
+            padding: 20px;
+            background-color: #e9ecef;
+            border: 1px solid #ddd;
+            display: inline-block;
+        }
+
+        /* Disable interactivity */
+        a,
+        button {
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="https://bootstrapmade.com/assets/img/logo.png" alt="Static Logo">
+            </div>
+            <div class="navigation-links">
+                <span>Home</span>
+                <span>About</span>
+                <span>Contact</span>
+            </div>
+        </div>
+    </header>
+
+    <div id="preview">
+        <div class="static-content">
+            <h1>Welcome to the Static Page</h1>
+            <p>This page is completely static. Clicking anywhere will not trigger any actions or navigation.</p>
+        </div>
+    </div>
+</body>
+
+</html>

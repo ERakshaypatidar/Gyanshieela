@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Append - Landing Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Hero Section */
+        .hero-section {
+            background-image: url('your-image.jpg'); /* Replace with your background image */
+            background-size: cover;
+            background-position: center;
+            height: 100vh; /* Full screen height */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-text {
+            font-size: 3rem;
+        }
+
+        .btn-custom {
+            font-size: 1.2rem;
+            padding: 10px 30px;
+            background-color: #f44336; /* Red color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-transform: uppercase;
+        }
+
+        .btn-custom:hover {
+            background-color: #d32f2f;
+        }
+
+        /* Navbar customization */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+        }
+
+        .navbar a {
+            color: white;
+        }
+
+        /* Make button and text responsive */
+        .hero-text h1 {
+            font-size: 2rem;
+        }
+        .hero-text p {
+            font-size: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+            .hero-text p {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Append</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-text">
+            <h1>Welcome to Our Website</h1>
+            <p>We are a team of talented designers making websites with Bootstrap</p>
+            <button class="btn-custom">Subscribe</button>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

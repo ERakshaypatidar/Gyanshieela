@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Remos eCommerce Admin Dashboard HTML Template</title>
+    <meta name="author" content="themesflat.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="css/animation.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="font/fonts.css">
+    <link rel="stylesheet" href="icon/style.css">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="images/favicon.png">
+</head>
+
+<body class="body">
+    <div id="wrapper">
+        <div id="page">
+            <div class="layout-wrap">
+                <div id="preload" class="preload-container">
+                    <div class="preloading"></div>
+                </div>
+                <div class="section-menu-left">
+                    <!-- Add your menu content here -->
+                </div>
+                <div class="section-content-right">
+                    <header class="header-dashboard">
+                        <!-- Add your header content here -->
+                    </header>
+                    <main class="main-content">
+                        <div class="main-content-inner">
+                            <div class="main-content-wrap">
+                                <form class="form-add-block form-style-2" method="POST"
+                                    action="/Akshay/OLDBOOKSENDSERVLET" id="form1" enctype="multipart/form-data"
+                                    novalidate>
+                                    <input type="hidden" name="_token" value="5tErBhHkvRuunysNP2ktrfH7uQbm9RR9rMBL179s">
+                                    <input type="hidden" name="project_type" value="flat">
+                                    <div class="wg-box">
+                                        <div class="right flex-grow">
+                                            <h3 class="center section-title">Flat</h3>
+                                            <div class="section-container">
+                                                <h3 class="section-title"></h3>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <fieldset class="project-type mb-24">
+                                                            <legend class="body-title mb-10">Project</legend>
+                                                            <select class="flex-grow valid" name="project_id"
+                                                                id="project_id" required aria-invalid="false">
+                                                                <option value="" disabled selected>Select Project
+                                                                </option>
+                                                            </select>
+                                                        </fieldset>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <fieldset class="plot_id mb-24">
+                                                            <legend class="body-title mb-10">Property type</legend>
+                                                            <select class="flex-grow valid" name="property_name"
+                                                                id="property_name" required aria-invalid="false">
+                                                                <option value="" disabled selected>Select Project
+                                                                </option>
+                                                            </select>
+                                                        </fieldset>
+                                                    </div>
+                                                </div>
+                                                <div id="inventoryFields" style="display: none;">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <fieldset class="plot_id mb-24">
+                                                                <legend class="body-title mb-10">Property Name</legend>
+                                                                <input class="flex-grow valid" type="text"
+                                                                    name="property_name2" id="property_name2" required
+                                                                    placeholder="Enter Property Name"
+                                                                    aria-invalid="false" />
+                                                            </fieldset>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <fieldset class="plot_id mb-24">
+                                                                <legend class="body-title mb-10">Property ID/Number
+                                                                </legend>
+                                                                <input class="flex-grow valid" type="text"
+                                                                    name="property_no" id="property_no" required
+                                                                    placeholder="Enter Property ID/Number"
+                                                                    aria-invalid="false" />
+                                                            </fieldset>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <fieldset class="floor_area mb-24">
+                                                                <legend class="body-title mb-10">Floor Area (Square Feet
+                                                                    or Square Meters)</legend>
+                                                                <input type="text" name="size" class="square_feet_size"
+                                                                    id="floor_area" placeholder="Floor Area" value="">
+                                                            </fieldset>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <fieldset class="floor_number mb-24">
+                                                                <legend class="body-title mb-10">Floor Number</legend>
+                                                                <input type="text" name="floor_number" id="floor_number"
+                                                                    placeholder="Floor Number" value="">
+                                                            </fieldset>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <fieldset class="amenities mb-24">
+                                                                <legend class="body-title mb-10">Amenities</legend>
+                                                                <input type="text" name="amenities" id="amenities"
+                                                                    placeholder="Amenities" value="">
+                                                            </fieldset>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <fieldset class="facing mb-24">
+                                                                <legend class="body-title mb-10">Facing</legend>
+                                                                <input type="text" name="facing" id="facing"
+                                                                    placeholder="Facing" value="">
+                                                            </fieldset>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <fieldset class="built_up_area mb-24">
+                                                                <legend class="body-title mb-10">Built-Up Area</legend>
+                                                                <input type="text" name="built_up_area"
+                                                                    id="built_up_area" placeholder="Built-Up Area"
+                                                                    value="">
+                                                            </fieldset>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <fieldset class="super_built_up_area mb-24">
+                                                                <legend class="body-title mb-10">Super Built-Up Area
+                                                                </legend>
+                                                                <input type="text" name="super_built_up_area"
+                                                                    id="super_built_up_area"
+                                                                    placeholder="Super Built-Up Area" value="">
+                                                            </fieldset>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <fieldset class="rate_area mb-24">
+                                                                <legend class="body-title mb-10">Saleable area</legend>
+                                                                <input type="number" name="rate_per_sq_feet"
+                                                                    id="saleable_area" class="rate_per_sq_feet"
+                                                                    placeholder="Saleable area" value="">
+                                                            </fieldset>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <fieldset class="location mb-24">
+                                                                <legend class="body-title mb-10">Location</legend>
+                                                                <input class="flex-grow" type="text"
+                                                                    placeholder="Location" name="location" id="location"
+                                                                    value="">
+                                                            </fieldset>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <fieldset class="ownership_type mb-24">
+                                                                <legend class="body-title mb-10">Ownership Type</legend>
+                                                                <select name="ownership_type" id="ownership_type">
+                                                                    <option value="owned" selected>Owned</option>
+                                                                    <option value="leasehold">Leasehold</option>
+                                                                    <option value="freehold">Freehold</option>
+                                                                </select>
+                                                            </fieldset>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <fieldset class="status mb-24">
+                                                                <legend class="body-title mb-10">Status</legend>
+                                                                <select name="status" id="status">
+                                                                    <option value="">Select Status</option>
+                                                                    <option value="available" selected>Available
+                                                                    </option>
+                                                                    <option value="sold">Sold/Booked</option>
+                                                                    <option value="mortgaged">Mortgaged</option>
+                                                                    <option value="on_hold">On Hold</option>
+                                                                    <option value="technical_hold">Technical Hold
+                                                                    </option>
+                                                                </select>
+                                                            </fieldset>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <fieldset class="mb-24">
+                                                            <legend class="body-title mb-10">Purchase Date</legend>
+                                                            <input class="flex-grow" type="date"
+                                                                placeholder="Enter Purchase Date" name="purchase_date"
+                                                                id="purchase_date" value="">
+                                                        </fieldset>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <fieldset class="mb-24">
+                                                            <legend class="body-title mb-10">Broker Name</legend>
+                                                            <input class="flex-grow no-copy-paste number-key-validation"
+                                                                type="text" placeholder="Enter Broker" id="broker_name"
+                                                                name="broker_name" value="">
+                                                        </fieldset>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="section-container">
+                                                <h3 class="section-title">Payment Details</h3>
+                                                <div class="row pr-5 pl-5">
+                                                    <div class="col-4 mt-3">
+                                                        <fieldset class="name mb-24">
+                                                            <legend class="body-title mb-10">Base Selling Price *
+                                                            </legend>
+                                                            <input type="number" min="0"
+                                                                class="flex-grow no-copy-paste number-key-validation"
+                                                                placeholder="Enter Amount" id="bsp_amount"
+                                                                name="base_charges" value="">
+                                                        </fieldset>
+                                                    </div>
+                                                    <div class="col-4 mt-3">
+                                                        <fieldset class="name mb-24">
+                                                            <legend class="body-title mb-10">Preferred Location Charges
+                                                                % (PLC) *</legend>
+                                                            <input type="number" min="0"
+                                                                class="flex-grow no-copy-paste number-key-validation"
+                                                                placeholder="Enter Amount" id="plc_amount"
+                                                                name="location_charges" value="">
+                                                        </fieldset>
+                                                    </div>
+                                                    <div class="col-4 mt-3">
+                                                        <fieldset class="name mb-24">
+                                                            <legend class="body-title mb-10">Discount %</legend>
+                                                            <input type="number" min="0"
+                                                                class="flex-grow no-copy-paste number-key-validation"
+                                                                placeholder="Enter Amount" id="discount" name="discount"
+                                                                value="">
+                                                        </fieldset>
+                                                    </div>
+                                                    <div class="col-4 mt-3">
+                                                        <fieldset class="name mb-24">
+                                                            <legend class="body-title mb-10">Sales Price *</legend>
+                                                            <input type="number" min="0"
+                                                                class="flex-grow no-copy-paste number-key-validation"
+                                                                readonly placeholder="Enter Sales Price"
+                                                                id="grand_total_amount" name="grand_total_amount"
+                                                                value="" required>
+                                                        </fieldset>
+                                                    </div>
+                                                    <div class="col-4 mt-3">
+                                                        <fieldset class="name mb-24">
+                                                            <legend class="body-title mb-10">Price Of Unit *</legend>
+                                                            <input type="number" min="0"
+                                                                class="flex-grow no-copy-paste number-key-validation"
+                                                                readonly placeholder="Enter Price Of Unit"
+                                                                id="price_of_unit" name="price_of_unit" value=""
+                                                                required>
+                                                        </fieldset>
+                                                    </div>
+                                                    <div class="col-4 mt-3">
+                                                        <fieldset class="name mb-24">
+                                                            <legend class="body-title mb-10">Payment Start Date *
+                                                            </legend>
+                                                            <input type="date" class="flex-grow no-copy-paste"
+                                                                placeholder="Enter Payment Start Date"
+                                                                id="payment_start_date" name="payment_start_date"
+                                                                value="" required>
+                                                        </fieldset>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button type="button" class="tf-button style-1 w180" data-bs-toggle="modal"
+                                                data-bs-target="#repaymentPlanModal">
+                                                Add Payment Plan
+                                            </button>
+                                            <div class="modal fade" id="repaymentPlanModal" tabindex="-1"
+                                                aria-labelledby="repaymentPlanLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-xl">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="section-container">
+                                                                <h3 class="section-title">Re-Payment Plan</h3>
+                                                                <div class="col-md-3">
+                                                                    <fieldset class="total-booking-amount mb-24">
+                                                                        <legend class="body-title mb-10">Total Amount
+                                                                        </legend>
+                                                                        <h3 id="total_booking_amount">0</h3>
+                                                                    </fieldset>
+                                                                </div>
+                                                                <div class="col-md-3 d-none">
+                                                                    <fieldset class="remaining-unpaid-amount mb-24">
+                                                                        <legend class="body-title mb-10">Remaining
+                                                                            Unpaid Amount</legend>
+                                                                        <h3 id="remaining_unpaid_amount">0</h3>
+                                                                    </fieldset>
+                                                                </div>
+                                                                <div id="repaymentContainer">
+                                                                    <div class="row py-5 mb-5 repayments border"
+                                                                        id="repaymentTemplate">
+                                                                        <div class="col-md-3">
+                                                                            <fieldset class="select-plan mb-24">
+                                                                                <legend class="body-title mb-10">Select
+                                                                                    Plan <span
+                                                                                        class="tf-color-1">*</span>
+                                                                                </legend>
+                                                                                <input type="hidden" name="payment_id"
+                                                                                    value="0">
+                                                                                <select name="payments[0][payment_plan]"
+                                                                                    class="payment_plan" required>
+                                                                                    <option value="">Select Payment Plan
+                                                                                    </option>
+                                                                                    <option value="down_payment">Down
+                                                                                        Payment Plan</option>
+                                                                                    <option value="installment_payment">
+                                                                                        Installment Payment Plan
+                                                                                    </option>
+                                                                                    <option
+                                                                                        value="construction_link_payment">
+                                                                                        Construction Link Payment Plan
+                                                                                    </option>
+                                                                                    <option value="last_installment">
+                                                                                        Last Installment</option>
+                                                                                </select>
+                                                                            </fieldset>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <fieldset class="schedule-name mb-24">
+                                                                                <legend class="body-title mb-10">
+                                                                                    Schedule Name</legend>
+                                                                                <input type="text" class="schedule_name"
+                                                                                    name="payments[0][schedule_name]"
+                                                                                    placeholder="Enter Schedule Name"
+                                                                                    required>
+                                                                            </fieldset>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <fieldset class="schedule-percent mb-24">
+                                                                                <legend class="body-title mb-10">
+                                                                                    Schedule %</legend>
+                                                                                <input type="number"
+                                                                                    class="schedule_percent"
+                                                                                    name="payments[0][schedule_percent]"
+                                                                                    min="1" max="100"
+                                                                                    placeholder="Enter Schedule %"
+                                                                                    required>
+                                                                            </fieldset>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <fieldset class="schedule-amount mb-24">
+                                                                                <legend class="body-title mb-10">
+                                                                                    Schedule Amount</legend>
+                                                                                <input type="number"
+                                                                                    class="schedule_amount"
+                                                                                    name="payments[0][schedule_amount]"
+                                                                                    placeholder="Enter Schedule Amount"
+                                                                                    required readonly>
+                                                                            </fieldset>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <fieldset class="tax-percent mb-24">
+                                                                                <legend class="body-title mb-10">Tax %
+                                                                                </legend>
+                                                                                <input type="number" class="tax_percent"
+                                                                                    name="payments[0][tax_percent]"
+                                                                                    placeholder="Enter Tax % (If Applicable)">
+                                                                            </fieldset>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <fieldset class="tax-amount mb-24">
+                                                                                <legend class="body-title mb-10">Tax
+                                                                                    Amount</legend>
+                                                                                <input type="number" class="tax_amount"
+                                                                                    name="payments[0][tax_amount]"
+                                                                                    placeholder="Auto-calculated Tax Amount"
+                                                                                    readonly>
+                                                                            </fieldset>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <fieldset class="total-amount mb-24">
+                                                                                <legend class="body-title mb-10">Total
+                                                                                    Amount</legend>
+                                                                                <input type="number"
+                                                                                    class="total_amount"
+                                                                                    name="payments[0][total_amount]"
+                                                                                    placeholder="Auto-calculated Total Amount"
+                                                                                    readonly>
+                                                                            </fieldset>
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <fieldset
+                                                                                class="generate-demand-date mb-24">
+                                                                                <legend class="body-title mb-10">
+                                                                                    Generate Demand Date</legend>
+                                                                                <input class="flex-grow" type="date"
+                                                                                    placeholder="dd-mm-yyyy"
+                                                                                    name="payments[0][demand_date]"
+                                                                                    required>
+                                                                            </fieldset>
+                                                                        </div>
+                                                                        <div class="col-md-2">
+                                                                            <button type="button"
+                                                                                class="btn-remove btn btn-danger btn-lg"
+                                                                                style="display: none;">Remove</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row pr-5 pl-5">
+                                                                    <div class="col-md-12">
+                                                                        <button type="button"
+                                                                            class="tf-button style-1 w180"
+                                                                            id="addRepayment">Add More</button>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12 mt-5">
+                                                                    <fieldset class="name mb-24">
+                                                                        <legend class="body-title mb-10">Other Charges
+                                                                        </legend>
+                                                                        <div id="additional_fields_container"></div>
+                                                                        <button type="button"
+                                                                            class="tf-button w180 btn-lg mt-3"
+                                                                            id="add_field">Add Field</button>
+                                                                    </fieldset>
+                                                                </div>
+                                                                <input name="total_amount_with_charge"
+                                                                    id="total_amount_with_charge" type="text" readonly
+                                                                    value="0">
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="tf-button style-1 w180"
+                                                                data-bs-dismiss="modal">Save</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="section-container">
+                                                <h3 class="section-title">Party Information</h3>
+                                                <div class="col-md-12">
+                                                    <fieldset class="project-type mb-24">
+                                                        <legend class="body-title mb-10">Client Type</legend>
+                                                        <select class="flex-grow" name="client_type" id="client_type"
+                                                            required>
+                                                            <option value="individual">Individual</option>
+                                                            <option value="company">Company</option>
+                                                        </select>
+                                                    </fieldset>
+                                                </div>
+                                                <div id="individual_div" style="display: none;">
+                                                    <div class="row mb-24">
+                                                        <div class="col-md-6">
+                                                            <button type="button" id="addCoApplicantBtn"
+                                                                class="tf-button w180">Add Co-Applicant</button>
+                                                        </div>
+                                                    </div>
+                                                    <div id="coApplicantWrapper">
+                                                        <div class="section-container applicant-section"
+                                                            id="applicant-0">
+                                                            <h3 class="section-title">Applicant Information</h3>
+                                                            <input type="hidden"
+                                                                name="individual_applicant[0][applicant_type]"
+                                                                value="main">
+                                                            <input type="hidden" name="applicant_id" value="0">
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <fieldset class="name mb-24">
+                                                                        <legend class="body-title mb-10">Name *</legend>
+                                                                        <<!DOCTYPE html>
+                                                                            <html lang="en">
+
+                                                                            <head>
+                                                                                <meta charset="utf-8">
+                                                                                <title>Remos eCommerce Admin Dashboard
+                                                                                    HTML Template</title>
+                                                                                <meta name="author"
+                                                                                    content="themesflat.com">
+                                                                                <meta name="viewport"
+                                                                                    content="width=device-width, initial-scale=1, maximum-scale=1">
+                                                                                <link rel="stylesheet" type="text/css"
+                                                                                    href="css/animate.min.css">
+                                                                                <link rel="stylesheet" type="text/css"
+                                                                                    href="css/animation.css">
+                                                                                <link rel="stylesheet" type="text/css"
+                                                                                    href="css/bootstrap.css">
+                                                                                <link rel="stylesheet" type="text/css"
+                                                                                    href="css/bootstrap-select.min.css">
+                                                                                <link rel="stylesheet" type="text/css"
+                                                                                    href="css/style.css">
+                                                                                <link rel="stylesheet"
+                                                                                    href="font/fonts.css">
+                                                                                <link rel="stylesheet"
+                                                                                    href="icon/style.css">
+                                                                                <link rel="shortcut icon"
+                                                                                    href="images/favicon.png">
+                                                                                <link rel="apple-touch-icon-precomposed"
+                                                                                    href="images/favicon.png">
+                                                                            </head>
+
+                                                                            <body class="body">
+                                                                                <div id="wrapper">
+                                                                                    <div id="page">
+                                                                                        <div class="layout-wrap">
+                                                                                            <div id="preload"
+                                                                                                class="preload-container">
+                                                                                                <div class="preloading">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="section-menu-left">
+                                                                                                <!-- Add your menu content here -->
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="section-content-right">
+                                                                                                <header
+                                                                                                    class="header-dashboard">
+                                                                                                    <!-- Add your header content here -->
+                                                                                                </header>
+                                                                                                <main
+                                                                                                    class="main-content">
+                                                                                                    <div
+                                                                                                        class="main-content-inner">
+                                                                                                        <div
+                                                                                                            class="main-content-wrap">
+                                                                                                            <form
+                                                                                                                class="form-add-block form-style-2"
+                                                                                                                method="POST"
+                                                                                                                action="/Akshay/OLDBOOKSENDSERVLET"
+                                                                                                                id="form1"
+                                                                                                                enctype="multipart/form-data"
+                                                                                                                novalidate>
+                                                                                                                <input
+                                                                                                                    type="hidden"
+                                                                                                                    name="_token"
+                                                                                                                    value="5tErBhHkvRuunysNP2ktrfH7uQbm9RR9rMBL179s">
+                                                                                                                <input
+                                                                                                                    type="hidden"
+                                                                                                                    name="project_type"
+                                                                                                                    value="flat">
+                                                                                                                <div
+                                                                                                                    class="wg-box">
+                                                                                                                    <div
+                                                                                                                        class="right flex-grow">
+                                                                                                                        <h3
+                                                                                                                            class="center section-title">
+                                                                                                                            Flat
+                                                                                                                        </h3>
+                                                                                                                        <div
+                                                                                                                            class="section-container">
+                                                                                                                            <h3
+                                                                                                                                class="section-title">
+                                                                                                                            </h3>
+                                                                                                                            <div
+                                                                                                                                class="row">
+                                                                                                                                <div
+                                                                                                                                    class="col-md-6">
+                                                                                                                                    <fieldset
+                                                                                                                                        class="project-type mb-24">
+                                                                                                                                        <legend
+                                                                                                                                            class="body-title mb-10">
+                                                                                                                                            Project
+                                                                                                                                        </legend>
+                                                                                                                                        <select
+                                                                                                                                            class="flex-grow valid"
+                                                                                                                                            name="project_id"
+                                                                                                                                            id="project_id"
+                                                                                                                                            required
+                                                                                                                                            aria-invalid="false">
+                                                                                                                                            <option
+                                                                                                                                                value=""
+                                                                                                                                                disabled
+                                                                                                                                                selected>
+                                                                                                                                                Select
+                                                                                                                                                Project
+                                                                                                                                            </option>
+                                                                                                                                        </select>
+                                                                                                                                    </fieldset>
+                                                                                                                                </div>
+                                                                                                                                <div
+                                                                                                                                    class="col-md-6">
+                                                                                                                                    <fieldset
+                                                                                                                                        class="plot_id mb-24">
+                                                                                                                                        <legend
+                                                                                                                                            class="body-title mb-10">
+                                                                                                                                            Property
+                                                                                                                                            type
+                                                                                                                                        </legend>
+                                                                                                                                        <select
+                                                                                                                                            class="flex-grow valid"
+                                                                                                                                            name="property_name"
+                                                                                                                                            id="property_name"
+                                                                                                                                            required
+                                                                                                                                            aria-invalid="false">
+                                                                                                                                            <option
+                                                                                                                                                value=""
+                                                                                                                                                disabled
+                                                                                                                                                selected>
+                                                                                                                                                Select
+                                                                                                                                                Project
+                                                                                                                                            </option>
+                                                                                                                                        </select>
+                                                                                                                                    </fieldset>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                            <div id="inventoryFields"
+                                                                                                                                style="display: none;">
+                                                                                                                                <div
+                                                                                                                                    class="row">
+                                                                                                                                    <div
+                                                                                                                                        class="col-md-6">
+                                                                                                                                        <fieldset
+                                                                                                                                            class="plot_id mb-24">
+                                                                                                                                            <legend
+                                                                                                                                                class="body-title mb-10">
+                                                                                                                                                Property
+                                                                                                                                                Name
+                                                                                                                                            </legend>
+                                                                                                                                            <input
+                                                                                                                                                class="flex-grow valid"
+                                                                                                                                                type="text"
+                                                                                                                                                name="property_name2"
+                                                                                                                                                id="property_name2"
+                                                                                                                                                required
+                                                                                                                                                placeholder="Enter Property Name"
+                                                                                                                                                aria-invalid="false" />
+                                                                                                                                        </fieldset>
+                                                                                                                                    </div>
+                                                                                                                                    <div
+                                                                                                                                        class="col-md-6">
+                                                                                                                                        <fieldset
+                                                                                                                                            class="plot_id mb-24">
+                                                                                                                                            <legend
+                                                                                                                                                class="body-title mb-10">
+                                                                                                                                                Property
+                                                                                                                                                ID/Number
+                                                                                                                                            </legend>
+                                                                                                                                            <input
+                                                                                                                                                class="flex-grow valid"
+                                                                                                                                                type="text"
+                                                                                                                                                name="property_no"
+                                                                                                                                                id="property_no"
+                                                                                                                                                required
+                                                                                                                                                placeholder="Enter Property ID/Number"
+                                                                                                                                                aria-invalid="false" />
+                                                                                                                                        </fieldset>
+                                                                                                                                    </div>
+                                                                                                                                    <div
+                                                                                                                                        class="col-md-6">
+                                                                                                                                        <fieldset
+                                                                                                                                            class="floor_area mb-24">
+                                                                                                                                            <legend
+                                                                                                                                                class="body-title mb-10">
+                                                                                                                                                Floor
+                                                                                                                                                Area
+                                                                                                                                                (Square
+                                                                                                                                                Feet
+                                                                                                                                                or
+                                                                                                                                                Square
+                                                                                                                                                Meters)
+                                                                                                                                            </legend>
+                                                                                                                                            <input
+                                                                                                                                                type="text"
+                                                                                                                                                name="size"
+                                                                                                                                                class="square_feet_size"
+                                                                                                                                                id="floor_area"
+                                                                                                                                                placeholder="Floor Area"
+                                                                                                                                                value="">
+                                                                                                                                        </fieldset>
+                                                                                                                                    </div>
+                                                                                                                                    <div
+                                                                                                                                        class="col-md-6">
+                                                                                                                                        <fieldset
+                                                                                                                                            class="floor_number mb-24">
+                                                                                                                                            <legend
+                                                                                                                                                class="body-title mb-10">
+                                                                                                                                                Floor
+                                                                                                                                                Number
+                                                                                                                                            </legend>
+                                                                                                                                            <input
+                                                                                                                                                type="text"
+                                                                                                                                                name="floor_number"
+                                                                                                                                                id="floor_number"
+                                                                                                                                                placeholder="Floor Number"
+                                                                                                                                                value="">
+                                                                                                                                        </fieldset>
+                                                                                                                                    </div>
+                                                                                                                                    <div
+                                                                                                                                        class="col-md-6">
+                                                                                                                                        <fieldset
+                                                                                                                                            class="amenities mb-24">
+                                                                                                                                            <legend
+                                                                                                                                                class="body-title mb-10">
+                                                                                                                                                Amenities
+                                                                                                                                            </legend>
+                                                                                                                                            <input
+                                                                                                                                                type="text"
+                                                                                                                                                name="amenities"
+                                                                                                                                                id="amenities"
+                                                                                                                                                placeholder="Amenities"
+                                                                                                                                                value="">
+                                                                                                                                        </fieldset>
+                                                                                                                                    </div>
+                                                                                                                                    <div
+                                                                                                                                        class="col-md-6">
+                                                                                                                                        <fieldset
+                                                                                                                                            class="facing mb-24">
+                                                                                                                                            <legend
+                                                                                                                                                class="body-title mb-10">
+                                                                                                                                                Facing
+                                                                                                                                            </legend>
+                                                                                                                                            <input
+                                                                                                                                                type="text"
+                                                                                                                                                name="facing"
+                                                                                                                                                id="facing"
+                                                                                                                                                placeholder="Facing"
+                                                                                                                                                value="">
+                                                                                                                                        </fieldset>
+                                                                                                                                    </div>
+                                                                                                                                    <div
+                                                                                                                                        class="col-md-6">
+                                                                                                                                        <fieldset
+                                                                                                                                            class="built_up_area mb-24">
+                                                                                                                                            <legend
+                                                                                                                                                class="body-title mb-10">
+                                                                                                                                                Built-Up
+                                                                                                                                                Area
+                                                                                                                                            </legend>
+                                                                                                                                            <input
+                                                                                                                                                type="text"
+                                                                                                                                                name="built_up_area"
+                                                                                                                                                id="built_up_area"
+                                                                                                                                                placeholder="Built-Up Area"
+                                                                                                                                                value="">
+                                                                                                                                        </fieldset>
+                                                                                                                                    </div>
+                                                                                                                                    <div
+                                                                                                                                        class="col-md-6">
+                                                                                                                                        <fieldset
+                                                                                                                                            class="super_built_up_area mb-24">
+                                                                                                                                            <legend
+                                                                                                                                                class="body-title mb-10">
+                                                                                                                                                Super
+                                                                                                                                                Built-Up
+                                                                                                                                                Area
+                                                                                                                                            </legend>
+                                                                                                                                            <input
+                                                                                                                                                type="text"
+                                                                                                                                                name="super_built_up_area"
+                                                                                                                                                id="super_built_up_area"
+                                                                                                                                                placeholder="Super Built-Up Area"
+                                                                                                                                                value="">
+                                                                                                                                        </fieldset>
+                                                                                                                                    </div>
+                                                                                                                                    <div
+                                                                                                                                        class="col-md-6">
+                                                                                                                                        <fieldset
+                                                                                                                                            class="rate_area mb-24">
+                                                                                                                                            <legend
+                                                                                                                                                class="body-title mb-10">
+                                                                                                                                                Saleable
+                                                                                                                                                area
+                                                                                                                                            </legend>
+                                                                                                                                            <input
+                                                                                                                                                type="number"
+                                                                                                                                                name="rate_per_sq_feet"
+                                                                                                                                                id="saleable_area"
+                                                                                                                                                class="rate_per_sq_feet"
+                                                                                                                                                placeholder="Saleable area"
+                                                                                                                                                value="">
+                                                                                                                                        </fieldset>
+                                                                                                                                    </div>
+                                                                                                                                    <div
+                                                                                                                                        class="col-md-6">
+                                                                                                                                        <fieldset
+                                                                                                                                            class="location mb-24">
+                                                                                                                                            <legend
+                                                                                                                                                class="body-title mb-10">
+                                                                                                                                                Location
+                                                                                                                                            </legend>
+                                                                                                                                            <input
+                                                                                                                                                class="flex-grow"
+                                                                                                                                                type="text"
+                                                                                                                                                placeholder="Location"
+                                                                                                                                                name="location"
+                                                                                                                                                id="location"
+                                                                                                                                                value="">
+                                                                                                                                        </fieldset>
+                                                                                                                                    </div>
+                                                                                                                                    <div
+                                                                                                                                        class="col-md-6">
+                                                                                                                                        <fieldset
+                                                                                                                                            class="ownership_type mb-24">
+                                                                                                                                            <legend
+                                                                                                                                                class="body-title mb-10">
+                                                                                                                                                Ownership
+                                                                                                                                                Type
+                                                                                                                                            </legend>
+                                                                                                                                            <select
+                                                                                                                                                name="ownership_type"
+                                                                                                                                                id="ownership_type">
+                                                                                                                                                <option
+                                                                                                                                                    value="owned"
+                                                                                                                                                    selected>
+                                                                                                                                                    Owned
+                                                                                                                                                </option>
+                                                                                                                                                <option
+                                                                                                                                                    value="leasehold">
+                                                                                                                                                    Leasehold
+                                                                                                                                                </option>
+                                                                                                                                                <option
+                                                                                                                                                    value="freehold">
+                                                                                                                                                    Freehold
+                                                                                                                                                </option>
+                                                                                                                                            </select>
+                                                                                                                                        </fieldset>
+                                                                                                                                    </div>
+                                                                                                                                    <div
+                                                                                                                                        class="col-md-6">
+                                                                                                                                        <fieldset
+                                                                                                                                            class="status mb-24">
+                                                                                                                                            <legend
+                                                                                                                                                class="body-title mb-10">
+                                                                                                                                                Status
+                                                                                                                                            </legend>
+                                                                                                                                            <select
+                                                                                                                                                name="status"
+                                                                                                                                                id="status">
+                                                                                                                                                <option
+                                                                                                                                                    value="">
+                                                                                                                                                    Select
+                                                                                                                                                    Status
+                                                                                                                                                </option>
+                                                                                                                                                <option
+                                                                                                                                                    value="available"
+                                                                                                                                                    selected>
+                                                                                                                                                    Available
+                                                                                                                                                </option>
+                                                                                                                                                <option
+                                                                                                                                                    value="sold">
+                                                                                                                                                    Sold/Booked
+                                                                                                                                                </option>
+                                                                                                                                                <option
+                                                                                                                                                    value="mortgaged">
+                                                                                                                                                    Mortgaged
+                                                                                                                                                </option>
+                                                                                                                                                <option
+                                                                                                                                                    value="on_hold">
+                                                                                                                                                    On
+                                                                                                                                                    Hold
+                                                                                                                                                </option>
+                                                                                                                                                <option
+                                                                                                                                                    value="technical_hold">
+                                                                                                                                                    Technical
+                                                                                                                                                    Hold
+                                                                                                                                                </option>
+                                                                                                                                            </select>
+                                                                                                                                        </fieldset>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                            <div
+                                                                                                                                class="row">
+                                                                                                                                <div
+                                                                                                                                    class="col-md-3">
+                                                                                                                                    <fieldset
+                                                                                                                                        class="mb-24">
+                                                                                                                                        <legend
+                                                                                                                                            class="body-title mb-10">
+                                                                                                                                            Purchase
+                                                                                                                                            Date
+                                                                                                                                        </legend>
+                                                                                                                                        <input
+                                                                                                                                            class="flex-grow"
+                                                                                                                                            type="date"
+                                                                                                                                            placeholder="Enter Purchase Date"
+                                                                                                                                            name="purchase_date"
+                                                                                                                                            id="purchase_date"
+                                                                                                                                            value="">
+                                                                                                                                    </fieldset>
+                                                                                                                                </div>
+                                                                                                                                <div
+                                                                                                                                    class="col-md-3">
+                                                                                                                                    <fieldset
+                                                                                                                                        class="mb-24">
+                                                                                                                                        <legend
+                                                                                                                                            class="body-title mb-10">
+                                                                                                                                            Broker
+                                                                                                                                            Name
+                                                                                                                                        </legend>
+                                                                                                                                        <input
+                                                                                                                                            class="flex-grow no-copy-paste number-key-validation"
+                                                                                                                                            type="text"
+                                                                                                                                            placeholder="Enter Broker"
+                                                                                                                                            id="broker_name"
+                                                                                                                                            name="broker_name"
+                                                                                                                                            value="">
+                                                                                                                                    </fieldset>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div
+                                                                                                                            class="section-container">
+                                                                                                                            <h3
+                                                                                                                                class="section-title">
+                                                                                                                                Payment
+                                                                                                                                Details
+                                                                                                                            </h3>
+                                                                                                                            <div
+                                                                                                                                class="row pr-5 pl-5">
+                                                                                                                                <div
+                                                                                                                                    class="col-4 mt-3">
+                                                                                                                                    <fieldset
+                                                                                                                                        class="name mb-24">
+                                                                                                                                        <legend
+                                                                                                                                            class="body-title mb-10">
+                                                                                                                                            Base
+                                                                                                                                            Selling
+                                                                                                                                            Price
+                                                                                                                                            *
+                                                                                                                                        </legend>
+                                                                                                                                        <input
+                                                                                                                                            type="number"
+                                                                                                                                            min="0"
+                                                                                                                                            class="flex-grow no-copy-paste number-key-validation"
+                                                                                                                                            placeholder="Enter Amount"
+                                                                                                                                            id="bsp_amount"
+                                                                                                                                            name="base_charges"
+                                                                                                                                            value="">
+                                                                                                                                    </fieldset>
+                                                                                                                                </div>
+                                                                                                                                <div
+                                                                                                                                    class="col-4 mt-3">
+                                                                                                                                    <fieldset
+                                                                                                                                        class="name mb-24">
+                                                                                                                                        <legend
+                                                                                                                                            class="body-title mb-10">
+                                                                                                                                            Preferred
+                                                                                                                                            Location
+                                                                                                                                            Charges
+                                                                                                                                            %
+                                                                                                                                            (PLC)
+                                                                                                                                            *
+                                                                                                                                        </legend>
+                                                                                                                                        <input
+                                                                                                                                            type="number"
+                                                                                                                                            min="0"
+                                                                                                                                            class="flex-grow no-copy-paste number-key-validation"
+                                                                                                                                            placeholder="Enter Amount"
+                                                                                                                                            id="plc_amount"
+                                                                                                                                            name="location_charges"
+                                                                                                                                            value="">
+                                                                                                                                    </fieldset>
+                                                                                                                                </div>
+                                                                                                                                <div
+                                                                                                                                    class="col-4 mt-3">
+                                                                                                                                    <fieldset
+                                                                                                                                        class="name mb-24">
+                                                                                                                                        <legend
+                                                                                                                                            class="body-title mb-10">
+                                                                                                                                            Discount
+                                                                                                                                            %
+                                                                                                                                        </legend>
+                                                                                                                                        <input
+                                                                                                                                            type="number"
+                                                                                                                                            min="0"
+                                                                                                                                            class="flex-grow no-copy-paste number-key-validation"
+                                                                                                                                            placeholder="Enter Amount"
+                                                                                                                                            id="discount"
+                                                                                                                                            name="discount"
+                                                                                                                                            value="">
+                                                                                                                                    </fieldset>
+                                                                                                                                </div>
+                                                                                                                                <div
+                                                                                                                                    class="col-4 mt-3">
+                                                                                                                                    <fieldset
+                                                                                                                                        class="name mb-24">
+                                                                                                                                        <legend
+                                                                                                                                            class="body-title mb-10">
+                                                                                                                                            Sales
+                                                                                                                                            Price
+                                                                                                                                            *
+                                                                                                                                        </legend>
+                                                                                                                                        <input
+                                                                                                                                            type="number"
+                                                                                                                                            min="0"
+                                                                                                                                            class="flex-grow no-copy-paste number-key-validation"
+                                                                                                                                            readonly
+                                                                                                                                            placeholder="Enter Sales Price"
+                                                                                                                                            id="grand_total_amount"
+                                                                                                                                            name="grand_total_amount"
+                                                                                                                                            value=""
+                                                                                                                                            required>
+                                                                                                                                    </fieldset>
+                                                                                                                                </div>
+                                                                                                                                <div
+                                                                                                                                    class="col-4 mt-3">
+                                                                                                                                    <fieldset
+                                                                                                                                        class="name mb-24">
+                                                                                                                                        <legend
+                                                                                                                                            class="body-title mb-10">
+                                                                                                                                            Price
+                                                                                                                                            Of
+                                                                                                                                            Unit
+                                                                                                                                            *
+                                                                                                                                        </legend>
+                                                                                                                                        <input
+                                                                                                                                            type="number"
+                                                                                                                                            min="0"
+                                                                                                                                            class="flex-grow no-copy-paste number-key-validation"
+                                                                                                                                            readonly
+                                                                                                                                            placeholder="Enter Price Of Unit"
+                                                                                                                                            id="price_of_unit"
+                                                                                                                                            name="price_of_unit"
+                                                                                                                                            value=""
+                                                                                                                                            required>
+                                                                                                                                    </fieldset>
+                                                                                                                                </div>
+                                                                                                                                <div
+                                                                                                                                    class="col-4 mt-3">
+                                                                                                                                    <fieldset
+                                                                                                                                        class="name mb-24">
+                                                                                                                                        <legend
+                                                                                                                                            class="body-title mb-10">
+                                                                                                                                            Payment
+                                                                                                                                            Start
+                                                                                                                                            Date
+                                                                                                                                            *
+                                                                                                                                        </legend>
+                                                                                                                                        <input
+                                                                                                                                            type="date"
+                                                                                                                                            class="flex-grow no-copy-paste"
+                                                                                                                                            placeholder="Enter Payment Start Date"
+                                                                                                                                            id="payment_start_date"
+                                                                                                                                            name="payment_start_date"
+                                                                                                                                            value=""
+                                                                                                                                            required>
+                                                                                                                                    </fieldset>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <button
+                                                                                                                            type="button"
+                                                                                                                            class="tf-button style-1 w180"
+                                                                                                                            data-bs-toggle="modal"
+                                                                                                                            data-bs-target="#repaymentPlanModal">
+                                                                                                                            Add
+                                                                                                                            Payment
+                                                                                                                            Plan
+                                                                                                                        </button>
+                                                                                                                        <div class="modal fade"
+                                                                                                                            id="repaymentPlanModal"
+                                                                                                                            tabindex="-1"
+                                                                                                                            aria-labelledby="repaymentPlanLabel"
+                                                                                                                            aria-hidden="true">
+                                                                                                                            <div
+                                                                                                                                class="modal-dialog modal-xl">
+                                                                                                                                <div
+                                                                                                                                    class="modal-content">
+                                                                                                                                    <div
+                                                                                                                                        class="modal-header">
+                                                                                                                                        <button
+                                                                                                                                            type="button"
+                                                                                                                                            class="btn-close"
+                                                                                                                                            data-bs-dismiss="modal"
+                                                                                                                                            aria-label="Close"></button>
+                                                                                                                                    </div>
+                                                                                                                                    <div
+                                                                                                                                        class="modal-body">
+                                                                                                                                        <div
+                                                                                                                                            class="section-container">
+                                                                                                                                            <h3
+                                                                                                                                                class="section-title">
+                                                                                                                                                Re-Payment
+                                                                                                                                                Plan
+                                                                                                                                            </h3>
+                                                                                                                                            <div
+                                                                                                                                                class="col-md-3">
+                                                                                                                                                <fieldset
+                                                                                                                                                    class="total-booking-amount mb-24">
+                                                                                                                                                    <legend
+                                                                                                                                                        class="body-title mb-10">
+                                                                                                                                                        Total
+                                                                                                                                                        Amount
+                                                                                                                                                    </legend>
+                                                                                                                                                    <h3
+                                                                                                                                                        id="total_booking_amount">
+                                                                                                                                                        0
+                                                                                                                                                    </h3>
+                                                                                                                                                </fieldset>
+                                                                                                                                            </div>
+                                                                                                                                            <div
+                                                                                                                                                class="col-md-3 d-none">
+                                                                                                                                                <fieldset
+                                                                                                                                                    class="remaining-unpaid-amount mb-24">
+                                                                                                                                                    <legend
+                                                                                                                                                        class="body-title mb-10">
+                                                                                                                                                        Remaining
+                                                                                                                                                        Unpaid
+                                                                                                                                                        Amount
+                                                                                                                                                    </legend>
+                                                                                                                                                    <h3
+                                                                                                                                                        id="remaining_unpaid_amount">
+                                                                                                                                                        0
+                                                                                                                                                    </h3>
+                                                                                                                                                </fieldset>
+                                                                                                                                            </div>
+                                                                                                                                            <div
+                                                                                                                                                id="repaymentContainer">
+                                                                                                                                                <div class="row py-5 mb-5 repayments border"
+                                                                                                                                                    id="repaymentTemplate">
+                                                                                                                                                    <div
+                                                                                                                                                        class="col-md-3">
+                                                                                                                                                        <fieldset
+                                                                                                                                                            class="select-plan mb-24">
+                                                                                                                                                            <legend
+                                                                                                                                                                class="body-title mb-10">
+                                                                                                                                                                Select
+                                                                                                                                                                Plan
+                                                                                                                                                                <span
+                                                                                                                                                                    class="tf-color-1">*</span>
+                                                                                                                                                            </legend>
+                                                                                                                                                            <input
+                                                                                                                                                                type="hidden"
+                                                                                                                                                                name="payment_id"
+                                                                                                                                                                value="0">
+                                                                                                                                                            <select
+                                                                                                                                                                name="payments[0][payment_plan]"
+                                                                                                                                                                class="payment_plan"
+                                                                                                                                                                required>
+                                                                                                                                                                <option
+                                                                                                                                                                    value="">
+                                                                                                                                                                    Select
+                                                                                                                                                                    Payment
+                                                                                                                                                                    Plan
+                                                                                                                                                                </option>
+                                                                                                                                                                <option
+                                                                                                                                                                    value="down_payment">
+                                                                                                                                                                    Down
+                                                                                                                                                                    Payment
+                                                                                                                                                                    Plan
+                                                                                                                                                                </option>
+                                                                                                                                                                <option
+                                                                                                                                                                    value="installment_payment">
+                                                                                                                                                                    Installment
+                                                                                                                                                                    Payment
+                                                                                                                                                                    Plan
+                                                                                                                                                                </option>
+                                                                                                                                                                <option
+                                                                                                                                                                    value="construction_link_payment">
+                                                                                                                                                                    Construction
+                                                                                                                                                                    Link
+                                                                                                                                                                    Payment
+                                                                                                                                                                    Plan
+                                                                                                                                                                </option>
+                                                                                                                                                                <option
+                                                                                                                                                                    value="last_installment">
+                                                                                                                                                                    Last
+                                                                                                                                                                    Installment
+                                                                                                                                                                </option>
+                                                                                                                                                            </select>
+                                                                                                                                                        </fieldset>
+                                                                                                                                                    </div>
+                                                                                                                                                    <div
+                                                                                                                                                        class="col-md-3">
+                                                                                                                                                        <fieldset
+                                                                                                                                                            class="schedule-name mb-24">
+                                                                                                                                                            <legend
+                                                                                                                                                                class="body-title mb-10">
+                                                                                                                                                                Schedule
+                                                                                                                                                                Name
+                                                                                                                                                            </legend>
+                                                                                                                                                            <input
+                                                                                                                                                                type="text"
+                                                                                                                                                                class="schedule_name"
+                                                                                                                                                                name="payments[0][schedule_name]"
+                                                                                                                                                                placeholder="Enter Schedule Name"
+                                                                                                                                                                required>
+                                                                                                                                                        </fieldset>
+                                                                                                                                                    </div>
+                                                                                                                                                    <div
+                                                                                                                                                        class="col-md-3">
+                                                                                                                                                        <fieldset
+                                                                                                                                                            class="schedule-percent mb-24">
+                                                                                                                                                            <legend
+                                                                                                                                                                class="body-title mb-10">
+                                                                                                                                                                Schedule
+                                                                                                                                                                %
+                                                                                                                                                            </legend>
+                                                                                                                                                            <input
+                                                                                                                                                                type="number"
+                                                                                                                                                                class="schedule_percent"
+                                                                                                                                                                name="payments[0][schedule_percent]"
+                                                                                                                                                                min="1"
+                                                                                                                                                                max="100"
+                                                                                                                                                                placeholder="Enter Schedule %"
+                                                                                                                                                                required>
+                                                                                                                                                        </fieldset>
+                                                                                                                                                    </div>
+                                                                                                                                                    <div
+                                                                                                                                                        class="col-md-3">
+                                                                                                                                                        <fieldset
+                                                                                                                                                            class="schedule-amount mb-24">
+                                                                                                                                                            <legend
+                                                                                                                                                                class="body-title mb-10">
+                                                                                                                                                                Schedule
+                                                                                                                                                                Amount
+                                                                                                                                                            </legend>
+                                                                                                                                                            <input
+                                                                                                                                                                type="number"
+                                                                                                                                                                class="schedule_amount"
+                                                                                                                                                                name="payments[0][schedule_amount]"
+                                                                                                                                                                placeholder="Enter Schedule Amount"
+                                                                                                                                                                required
+                                                                                                                                                                readonly>
+                                                                                                                                                        </fieldset>
+                                                                                                                                                    </div>
+                                                                                                                                                    <div
+                                                                                                                                                        class="col-md-3">
+                                                                                                                                                        <fieldset
+                                                                                                                                                            class="tax-percent mb-24">
+                                                                                                                                                            <legend
+                                                                                                                                                                class="body-title mb-10">
+                                                                                                                                                                Tax
+                                                                                                                                                                %
+                                                                                                                                                            </legend>
+                                                                                                                                                            <input
+                                                                                                                                                                type="number"
+                                                                                                                                                                class="tax_percent"
+                                                                                                                                                                name="payments[0][tax_percent]"
+                                                                                                                                                                placeholder="Enter Tax % (If Applicable)">
+                                                                                                                                                        </fieldset>
+                                                                                                                                                    </div>
+                                                                                                                                                    <div
+                                                                                                                                                        class="col-md-3">
+                                                                                                                                                        <fieldset
+                                                                                                                                                            class="tax-amount mb-24">
+                                                                                                                                                            <legend
+                                                                                                                                                                class="body-title mb-10">
+                                                                                                                                                                Tax
+                                                                                                                                                                Amount
+                                                                                                                                                            </legend>
+                                                                                                                                                            <input
+                                                                                                                                                                type="number"
+                                                                                                                                                                class="tax_amount"
+                                                                                                                                                                name="payments[0][tax_amount]"
+                                                                                                                                                                placeholder="Auto-calculated Tax Amount"
+                                                                                                                                                                readonly>
+                                                                                                                                                        </fieldset>
+                                                                                                                                                    </div>
+                                                                                                                                                    <div
+                                                                                                                                                        class="col-md-3">
+                                                                                                                                                        <fieldset
+                                                                                                                                                            class="total-amount mb-24">
+                                                                                                                                                            <legend
+                                                                                                                                                                class="body-title mb-10">
+                                                                                                                                                                Total
+                                                                                                                                                                Amount
+                                                                                                                                                            </legend>
+                                                                                                                                                            <input
+                                                                                                                                                                type="number"
+                                                                                                                                                                class="total_amount"
+                                                                                                                                                                name="payments[0][total_amount]"
+                                                                                                                                                                placeholder="Auto-calculated Total Amount"
+                                                                                                                                                                readonly>
+                                                                                                                                                        </fieldset>
+                                                                                                                                                    </div>
+                                                                                                                                                    <div
+                                                                                                                                                        class="col-md-3">
+                                                                                                                                                        <fieldset
+                                                                                                                                                            class="generate-demand-date mb-24">
+                                                                                                                                                            <legend
+                                                                                                                                                                class="body-title mb-10">
+                                                                                                                                                                Generate
+                                                                                                                                                                Demand
+                                                                                                                                                                Date
+                                                                                                                                                            </legend>
+                                                                                                                                                            <input
+                                                                                                                                                                class="flex-grow"
+                                                                                                                                                                type="date"
+                                                                                                                                                                placeholder="dd-mm-yyyy"
+                                                                                                                                                                name="payments[0][demand_date]"
+                                                                                                                                                                required>
+                                                                                                                                                        </fieldset>
+                                                                                                                                                    </div>
+                                                                                                                                                    <div
+                                                                                                                                                        class="col-md-2">
+                                                                                                                                                        <button
+                                                                                                                                                            type="button"
+                                                                                                                                                            class="btn-remove btn btn-danger btn-lg"
+                                                                                                                                                            style="display: none;">Remove</button>
+                                                                                                                                                    </div>
+                                                                                                                                                </div>
+                                                                                                                                            </div>
+                                                                                                                                            <div
+                                                                                                                                                class="row pr-5 pl-5">
+                                                                                                                                                <div
+                                                                                                                                                    class="col-md-12">
+                                                                                                                                                    <button
+                                                                                                                                                        type="button"
+                                                                                                                                                        class="tf-button style-1 w180"
+                                                                                                                                                        id="addRepayment">Add
+                                                                                                                                                        More</button>
+                                                                                                                                                </div>
+                                                                                                                                            </div>
+                                                                                                                                            <div
+                                                                                                                                                class="col-12 mt-5">
+                                                                                                                                                <fieldset
+                                                                                                                                                    class="name mb-24">
+                                                                                                                                                    <legend
+                                                                                                                                                        class="body-title mb-10">
+                                                                                                                                                        Other
+                                                                                                                                                        Charges
+                                                                                                                                                    </legend>
+                                                                                                                                                    <div
+                                                                                                                                                        id="additional_fields_container">
+                                                                                                                                                    </div>
+                                                                                                                                                    <button
+                                                                                                                                                        type="button"
+                                                                                                                                                        class="tf-button w180 btn-lg mt-3"
+                                                                                                                                                        id="add_field">Add
+                                                                                                                                                        Field</button>
+                                                                                                                                                </fieldset>
+                                                                                                                                            </div>
+                                                                                                                                            <input
+                                                                                                                                                name="total_amount_with_charge"
+                                                                                                                                                id="total_amount_with_charge"
+                                                                                                                                                type="text"
+                                                                                                                                                readonly
+                                                                                                                                                value="0">
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                    <div
+                                                                                                                                        class="modal-footer">
+                                                                                                                                        <button
+                                                                                                                                            type="button"
+                                                                                                                                            class="tf-button style-1 w180"
+                                                                                                                                            data-bs-dismiss="modal">Save</button>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <div
+                                                                                                                            class="section-container">
+                                                                                                                            <h3
+                                                                                                                                class="section-title">
+                                                                                                                                Party
+                                                                                                                                Information
+                                                                                                                            </h3>
+                                                                                                                            <div
+                                                                                                                                class="col-md-12">
+                                                                                                                                <fieldset
+                                                                                                                                    class="project-type mb-24">
+                                                                                                                                    <legend
+                                                                                                                                        class="body-title mb-10">
+                                                                                                                                        Client
+                                                                                                                                        Type
+                                                                                                                                    </legend>
+                                                                                                                                    <select
+                                                                                                                                        class="flex-grow"
+                                                                                                                                        name="client_type"
+                                                                                                                                        id="client_type"
+                                                                                                                                        required>
+                                                                                                                                        <option
+                                                                                                                                            value="individual">
+                                                                                                                                            Individual
+                                                                                                                                        </option>
+                                                                                                                                        <option
+                                                                                                                                            value="company">
+                                                                                                                                            Company
+                                                                                                                                        </option>
+                                                                                                                                    </select>
+                                                                                                                                </fieldset>
+                                                                                                                            </div>
+                                                                                                                            <div id="individual_div"
+                                                                                                                                style="display: none;">
+                                                                                                                                <div
+                                                                                                                                    class="row mb-24">
+                                                                                                                                    <div
+                                                                                                                                        class="col-md-6">
+                                                                                                                                        <button
+                                                                                                                                            type="button"
+                                                                                                                                            id="addCoApplicantBtn"
+                                                                                                                                            class="tf-button w180">Add
+                                                                                                                                            Co-Applicant</button>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                                <div
+                                                                                                                                    id="coApplicantWrapper">
+                                                                                                                                    <div class="section-container applicant-section"
+                                                                                                                                        id="applicant-0">
+                                                                                                                                        <h3
+                                                                                                                                            class="section-title">
+                                                                                                                                            Applicant
+                                                                                                                                            Information
+                                                                                                                                        </h3>
+                                                                                                                                        <input
+                                                                                                                                            type="hidden"
+                                                                                                                                            name="individual_applicant[0][applicant_type]"
+                                                                                                                                            value="main">
+                                                                                                                                        <input
+                                                                                                                                            type="hidden"
+                                                                                                                                            name="applicant_id"
+                                                                                                                                            value="0">
+                                                                                                                                        <div
+                                                                                                                                            class="row">
+                                                                                                                                            <div
+                                                                                                                                                class="col-md-4">
+                                                                                                                                                <fieldset
+                                                                                                                                                    class="name mb-24">
+                                                                                                                                                    <legend
+                                                                                                                                                        class="body-title mb-10">
+                                                                                                                                                        Name
+                                                                                                                                                        *
+                                                                                                                                                    </legend>
+                                                                                                                                                    <

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hanging Neon Calculator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: black;
+            overflow: hidden;
+        }
+
+        #calculator {
+            width: 400px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 5px solid #e74c3c;
+            border-radius: 15px;
+            color: white;
+            box-shadow: 0 0 20px #e74c3c, 0 0 40px #e74c3c, 0 0 60px #e74c3c;
+            text-align: center;
+            position: relative;
+            animation: swing 3s infinite ease-in-out;
+        }
+
+        @keyframes swing {
+
+            0%,
+            100% {
+                transform: rotate(3deg);
+            }
+
+            50% {
+                transform: rotate(-3deg);
+            }
+        }
+
+        #display {
+            width: 100%;
+            height: 50px;
+            margin-bottom: 20px;
+            font-size: 24px;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: right;
+            background: #2c3e50;
+            color: white;
+        }
+
+        .btn {
+            width: 22%;
+            height: 50px;
+            margin: 1%;
+            background: #34495e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 0 10px white;
+        }
+
+        .btn:hover {
+            background: #2c3e50;
+        }
+
+        #voice {
+            width: 100%;
+            height: 50px;
+            background: #e74c3c;
+            color: white;
+            font-size: 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            box-shadow: 0 0 10px #e74c3c;
+        }
+
+        #voice:hover {
+            background: #c0392b;
+        }
+
+        .error-popup {
+            position: absolute;
+            top: -150px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: red;
+            color: white;
+            padding: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 10px;
+            box-shadow: 0 0 20px red;
+            display: none;
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="calculator">
+        <div class="error-popup" id="errorPopup">YOU ARE BANNED</div>
+        <input type="text" id="display" disabled>
+        <div>
+            <button class="btn" onclick="appendValue('1')">1</button>
+            <button class="btn" onclick="appendValue('2')">2</button>
+            <button class="btn" onclick="appendValue('3')">3</button>
+            <button class="btn" onclick="clearDisplay()">C</button>
+        </div>
+        <div>
+            <button class="btn" onclick="appendValue('4')">4</button>
+            <button class="btn" onclick="appendValue('5')">5</button>
+            <button class="btn" onclick="appendValue('6')">6</button>
+            <button class="btn" onclick="appendValue('+')">+</button>
+        </div>
+        <div>
+            <button class="btn" onclick="appendValue('7')">7</button>
+            <button class="btn" onclick="appendValue('8')">8</button>
+            <button class="btn" onclick="appendValue('9')">9</button>
+            <button class="btn" onclick="appendValue('-')">-</button>
+        </div>
+        <div>
+            <button class="btn" onclick="appendValue('.')">.</button>
+            <button class="btn" onclick="appendValue('0')">0</button>
+            <button class="btn" onclick="calculate()">=</button>
+            <button class="btn" onclick="appendValue('*')">*</button>
+        </div>
+        <button id="voice" onclick="startVoiceRecognition()">🎤 Voice Input</button>
+    </div>
+
+    <script>
+        let display = document.getElementById('display');
+        let errorPopup = document.getElementById('errorPopup');
+
+        function appendValue(value) {
+            display.value += value;
+        }
+
+        function clearDisplay() {
+            display.value = '';
+        }
+
+        function calculate() {
+            try {
+                let expression = display.value;
+                if (expression.includes('70') && expression.includes('+') && eval(expression) === 17) {
+                    triggerBan();
+                } else {
+                    display.value = eval(expression);
+                }
+            } catch (e) {
+                display.value = 'Error';
+            }
+        }
+
+        function triggerBan() {
+            errorPopup.style.display = 'block';
+            setTimeout(() => {
+                errorPopup.style.display = 'none';
+                display.value = '';
+            }, 3000);
+        }
+
+        function startVoiceRecognition() {
+            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.lang = 'en-US';
+            recognition.start();
+
+            recognition.onresult = function (event) {
+                const voiceInput = event.results[0][0].transcript;
+                if (voiceInput.includes('70') && voiceInput.includes('plus') && voiceInput.includes('17')) {
+                    triggerBan();
+                } else {
+                    display.value += voiceInput;
+                }
+            };
+
+            recognition.onerror = function () {
+                alert('Voice recognition failed. Please try again.');
+            };
+        }
+    </script>
+</body>
+
+</html>

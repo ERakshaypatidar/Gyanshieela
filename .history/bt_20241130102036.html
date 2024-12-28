@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+
+        @media screen and (max-width: 600px) {
+
+            table,
+            thead,
+            tbody,
+            th,
+            td,
+            tr {
+                display: block;
+            }
+
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+            tr {
+                margin-bottom: 20px;
+                border: 1px solid #ddd;
+            }
+
+            td {
+                border: none;
+                position: relative;
+                padding-left: 50%;
+            }
+
+            td:before {
+                position: absolute;
+                left: 6px;
+                content: attr(data-label);
+                font-weight: bold;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Roll Number</th>
+                <th>Class</th>
+                <th>Subject</th>
+                <th>Marks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td data-label="Student Name">
+                    Prasad Bade
+                </td>
+                <td data-label="Roll Number">101</td>
+                <td data-label="Class">10</td>
+                <td data-label="Subject">Mathematics</td>
+                <td data-label="Marks">85</td>
+            </tr>
+            <tr>
+                <td data-label="Student Name">
+                    Manohar Batra
+                </td>
+                <td data-label="Roll Number">102</td>
+                <td data-label="Class">10</td>
+                <td data-label="Subject">Science</td>
+                <td data-label="Marks">88</td>
+            </tr>
+            <tr>
+                <td data-label="Student Name">
+                    Saurabh Puri
+                </td>
+                <td data-label="Roll Number">103</td>
+                <td data-label="Class">10</td>
+                <td data-label="Subject">History</td>
+                <td data-label="Marks">92</td>
+            </tr>
+            <tr>
+                <td data-label="Student Name">
+                    Yuvraj Ghule
+                </td>
+                <td data-label="Roll Number">104</td>
+                <td data-label="Class">10</td>
+                <td data-label="Subject">Marathi</td>
+                <td data-label="Marks">78</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

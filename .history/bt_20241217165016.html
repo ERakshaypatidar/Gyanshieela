@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Duplicate Front Page</title>
+    <style>
+        /* Reset and Layout */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background: #222;
+            color: white;
+            padding: 20px;
+            height: 100%;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar ul li {
+            margin: 15px 0;
+        }
+
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .sidebar ul li a:hover {
+            background: #444;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .header {
+            background: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* Front Page Design */
+        .front-page {
+            margin: 20px auto;
+            max-width: 900px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .front-page img {
+            width: 100%;
+            height: auto;
+        }
+
+        .offer-text {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .offer-text h1 {
+            font-size: 36px;
+            color: #333;
+        }
+
+        .offer-text p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .shop-now-btn {
+            display: inline-block;
+            background: #d32f2f;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            margin-top: 15px;
+            font-size: 16px;
+        }
+
+        .shop-now-btn:hover {
+            background: #b71c1c;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Manage Products</a></li>
+            <li><a href="#">Orders</a></li>
+            <li><a href="#">Reports</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="header">Admin Panel - Duplicate Front Page</div>
+
+        <!-- Placeholder for Front Page -->
+        <div id="front-page-container"></div>
+    </div>
+
+    <!-- JavaScript for Duplication -->
+    <script>
+        // Content to be duplicated
+        const frontPageContent = `
+            <div class="front-page">
+                <img src="https://via.placeholder.com/900x400?text=Winter+Collection" alt="Winter Collection Banner">
+                <div class="offer-text">
+                    <h1>UP TO 40% OFF</h1>
+                    <p>Last chance on <strong>Winterwear</strong></p>
+                    <a href="#" class="shop-now-btn">Shop Now</a>
+                </div>
+            </div>
+        `;
+
+        // Get container element
+        const container = document.getElementById("front-page-container");
+
+        // Append the same content twice dynamically
+        for (let i = 0; i < 2; i++) {
+            container.innerHTML += frontPageContent;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,725 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <title> Admin Dashboard </title>
+    <meta name="author" content="themesflat.com">
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Theme Style -->
+    <link rel="stylesheet" type="text/css" href="https://gyansheela.geegatech.online/assets/css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://gyansheela.geegatech.online/assets/css/animation.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://gyansheela.geegatech.online/assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://gyansheela.geegatech.online/assets/css/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="https://gyansheela.geegatech.online/assets/css/style.css">
+    <!-- Font -->
+    
+    <link rel="stylesheet" href="https://gyansheela.geegatech.online/assets/font/fonts.css">
+    <!-- Icon -->
+    <link rel="stylesheet" href="https://gyansheela.geegatech.online/assets/icon/style.css">
+    <!-- Favicon and Touch Icons  -->
+    <link rel="shortcut icon" href="https://gyansheela.geegatech.online/assets/images/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="https://gyansheela.geegatech.online/assets/images/favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
+
+    <script src="https://gyansheela.geegatech.online/assets/js/jquery.min.js"></script>
+</head>
+
+<body class="body">
+    <div id="wrapper">
+        <!-- #page -->
+        <div id="page" class="">
+            <!-- layout-wrap -->
+            <div class="layout-wrap">
+                <!-- preload -->
+                <div id="preload" class="preload-container">
+                    <div class="preloading">
+                        <span></span>
+                    </div>
+                </div>
+                <!-- /preload -->
+
+                <div class="section-content-right">
+                                        <!-- header-dashboard -->
+                    <div class="header-dashboard">
+                        <div class="wrap">
+                            <div class="header-left">
+                                <a href="">
+                                    <img class="" id="logo_header_mobile" alt=""
+                                        src="https://gyansheela.geegatech.online/assets/images/logo/logo.png"
+                                        data-light="https://gyansheela.geegatech.online/assets/images/logo/logo.png"
+                                        data-dark="https://gyansheela.geegatech.online/assets/images/logo/logo-dark.png"
+                                        data-width="154px" data-height="52px"
+                                        data-retina="https://gyansheela.geegatech.online/assets/images/logo/logo@2x.png">
+                                </a>
+                                <div class="button-show-hide">
+                                    <i class="icon-menu-left"></i>
+                                </div>
+                                <form class="form-search flex-grow">
+                                    <fieldset class="name">
+                                        <input type="text" placeholder="Search here..." class="show-search" name="name"
+                                            tabindex="2" value="" aria-required="true" required="">
+                                    </fieldset>
+                                    <div class="button-submit">
+                                        <button class="" type="submit"><i class="icon-search"></i></button>
+                                    </div>
+                                    <div class="box-content-search" id="box-content-search">
+                                        <ul class="mb-24">
+                                            <li class="mb-14">
+                                                <div class="body-title">Top selling product</div>
+                                            </li>
+                                            <li class="mb-14">
+                                                <div class="divider"></div>
+                                            </li>
+                                            <li>
+                                                <ul>
+                                                    <li class="product-item gap14 mb-10">
+                                                        <div class="image no-bg">
+                                                            <img src="images/products/17.png" alt="">
+                                                        </div>
+                                                        <div class="flex items-center justify-between gap20 flex-grow">
+                                                            <div class="name">
+                                                                <a href="product-list.html" class="body-text">Dog Food
+                                                                    Rachael Ray Nutrish®</a>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="mb-10">
+                                                        <div class="divider"></div>
+                                                    </li>
+                                                    <li class="product-item gap14 mb-10">
+                                                        <div class="image no-bg">
+                                                            <img src="images/products/18.png" alt="">
+                                                        </div>
+                                                        <div class="flex items-center justify-between gap20 flex-grow">
+                                                            <div class="name">
+                                                                <a href="product-list.html" class="body-text">Natural
+                                                                    Dog Food Healthy Dog Food</a>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="mb-10">
+                                                        <div class="divider"></div>
+                                                    </li>
+                                                    <li class="product-item gap14">
+                                                        <div class="image no-bg">
+                                                            <img src="images/products/19.png" alt="">
+                                                        </div>
+                                                        <div class="flex items-center justify-between gap20 flex-grow">
+                                                            <div class="name">
+                                                                <a href="product-list.html" class="body-text">Freshpet
+                                                                    Healthy Dog Food and Cat</a>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <ul class="">
+                                            <li class="mb-14">
+                                                <div class="body-title">Order product</div>
+                                            </li>
+                                            <li class="mb-14">
+                                                <div class="divider"></div>
+                                            </li>
+                                            <li>
+                                                <ul>
+                                                    <li class="product-item gap14 mb-10">
+                                                        <div class="image no-bg">
+                                                            <img src="images/products/20.png" alt="">
+                                                        </div>
+                                                        <div class="flex items-center justify-between gap20 flex-grow">
+                                                            <div class="name">
+                                                                <a href="product-list.html" class="body-text">Sojos
+                                                                    Crunchy Natural Grain Free...</a>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="mb-10">
+                                                        <div class="divider"></div>
+                                                    </li>
+                                                    <li class="product-item gap14 mb-10">
+                                                        <div class="image no-bg">
+                                                            <img src="images/products/21.png" alt="">
+                                                        </div>
+                                                        <div class="flex items-center justify-between gap20 flex-grow">
+
+
+                                                    </li>
+                                                    <li class="mb-10">
+                                                        <div class="divider"></div>
+                                                    </li>
+                                                    <li class="product-item gap14 mb-10">
+                                                        <div class="image no-bg">
+                                                            <img src="images/products/22.png" alt="">
+                                                        </div>
+                                                        <div class="flex items-center justify-between gap20 flex-grow">
+                                                            <div class="name">
+                                                                <a href="product-list.html" class="body-text">Mega
+                                                                    Pumpkin Bone</a>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="mb-10">
+                                                        <div class="divider"></div>
+                                                    </li>
+                                                    <li class="product-item gap14">
+                                                        <div class="image no-bg">
+                                                            <img src="images/products/23.png" alt="">
+                                                        </div>
+                                                        <div class="flex items-center justify-between gap20 flex-grow">
+                                                            <div class="name">
+                                                                <a href="product-list.html" class="body-text">Mega
+                                                                    Pumpkin Bone</a>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="header-grid">
+                                <!-- <div class="header-item country">
+                                    <select class="image-select no-text">
+                                        <option data-thumbnail="images/country/1.png">ENG</option>
+                                        <option data-thumbnail="images/country/9.png">VIE</option>
+                                    </select>
+                                </div> -->
+                                <div class="header-item button-dark-light">
+                                    <i class="icon-moon"></i>
+                                </div>
+
+                               
+                                <div class="header-item button-zoom-maximize">
+                                    <div class="">
+                                        <i class="icon-maximize"></i>
+                                    </div>
+                                </div>
+
+                                <div class="popup-wrap user type-header">
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button"
+                                            id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <span class="header-user wg-user">
+                                                                                                    <span class="image">
+                                                        <img src="https://gyansheela.geegatech.online/assets/images/avatar/1733481334.vsix" alt="">
+                                                    </span>
+                                                
+
+                                                <span class="flex flex-column">
+                                                                                                            <span class="body-title mb-2">admingyansheela</span>
+                                                    
+                                                    <!-- <span class="text-tiny">Admin</span> -->
+                                                </span>
+                                            </span>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end has-content"
+                                            aria-labelledby="dropdownMenuButton3">
+                                            <li>
+                                                <a href="https://gyansheela.geegatech.online/profile" class="user-item">
+                                                    <div class="icon">
+                                                        <i class="icon-user"></i>
+                                                    </div>
+                                                    <div class="body-title-2">Account</div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="user-item">
+                                                    <div class="icon">
+                                                        <i class="icon-mail"></i>
+                                                    </div>
+                                                    <div class="body-title-2">Inbox</div>
+                                                    <div class="number">27</div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="user-item">
+                                                    <div class="icon">
+                                                        <i class="icon-file-text"></i>
+                                                    </div>
+                                                    <div class="body-title-2">Taskboard</div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="setting.html" class="user-item">
+                                                    <div class="icon">
+                                                        <i class="icon-settings"></i>
+                                                    </div>
+                                                    <div class="body-title-2">Setting</div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="user-item">
+                                                    <div class="icon">
+                                                        <i class="icon-headphones"></i>
+                                                    </div>
+                                                    <div class="body-title-2">Support</div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://gyansheela.geegatech.online/logout" class="user-item"
+                                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                    <div class="icon">
+                                                        <i class="icon-log-out"></i>
+                                                    </div>
+                                                    <div class="body-title-2">Log out</div>
+                                                </a>
+                                                <form id="logout-form" action="https://gyansheela.geegatech.online/logout"
+                                                    method="POST" style="display: none;">
+                                                    <input type="hidden" name="_token" value="5isfksk0L3AgzohwsnxRmdw1DCvl3GYqiqIuB7p3">                                                </form>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+            </div>
+            
+    <div class="section-menu-left">
+    <div class="box-logo">
+        <a href="">
+            <img class="" id="logo_header_mobile" alt=""
+                src="https://gyansheela.geegatech.online/assets/images/logo/logo.png"
+                data-light="https://gyansheela.geegatech.online/assets/images/logo/logo.png"
+                data-dark="https://gyansheela.geegatech.online/assets/images/logo/logo-dark.png" data-width="154px"
+                data-height="52px"
+                data-retina="https://gyansheela.geegatech.online/assets/images/logo/logo@2x.png">
+        </a>
+        <div class="button-show-hide">
+            <i class="icon-menu-left"></i>
+        </div>
+    </div>
+    <div class="center">
+        <div class="center-item">
+            <div class="center-heading">Main Home</div>
+
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <a href="https://gyansheela.geegatech.online/home" class="">
+                        <div class="icon"><i class="icon-grid"></i></div>
+                        <div class="text">Dashboard</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="center-item">
+            <div class="center-heading">-------------------------------------</div>
+            <ul class="menu-list">
+
+                <!-- Projects -->
+                <li class="menu-item has-children ">
+                    <a href="javascript:void(0);" class="menu-item-button">
+                        <div class="icon"><i class="icon-clipboard"></i></div>
+                        <div class="text">Projects</div>
+                    </a>
+                    <ul class="sub-menu" style="display: none;">
+                        <li class="sub-menu-item">
+                            <a href="https://gyansheela.geegatech.online/projects/create" class="">
+                                <div class="text">Add Project</div>
+                            </a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="https://gyansheela.geegatech.online/projects" class="">
+                                <div class="text">Project List</div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Block -->
+           
+                <!-- Flat -->
+                
+                <!-- Installment Type -->
+            
+
+                <!-- Booking -->
+                <li class="menu-item has-children ">
+                    <a href="javascript:void(0);" class="menu-item-button">
+                        <div class="icon"><i class="icon-clipboard"></i></div>
+                        <div class="text">Booking</div>
+                    </a>
+                    <ul class="sub-menu" style="display: none;">
+                        <li class="sub-menu-item">
+                            <a href="https://gyansheela.geegatech.online/booking/create" class="">
+                                <div class="text">Add Booking</div>
+                            </a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="https://gyansheela.geegatech.online/booking" class="">
+                                <div class="text">Booking List</div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <!-- Inventory -->
+                <li class="menu-item has-children">
+                    <a href="javascript:void(0);" class="menu-item-button">
+                        <div class="icon"><i class="icon-shopping-cart"></i></div>
+                        <div class="text">Inventory</div>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="sub-menu-item">
+                            <a href="https://gyansheela.geegatech.online/inventory/create" class="">
+                                <div class="text">Add Inventory</div>
+                            </a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="https://gyansheela.geegatech.online/inventory" class="">
+                                <div class="text">Inventory List</div>
+                            </a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="https://gyansheela.geegatech.online/inventory/import" class="">
+                                <div class="text">Inventory Import</div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <!-- Reports -->
+                <li class="menu-item has-children">
+                    <a href="javascript:void(0);" class="menu-item-button">
+                        <div class="icon"><i class="icon-pie-chart"></i></div>
+                        <div class="text">Reports</div>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="sub-menu-item">
+                            <a href="https://gyansheela.geegatech.online/reports/create" class="">
+                                <div class="text">Generate Report</div>
+                            </a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="https://gyansheela.geegatech.online/reports" class="">
+                                <div class="text">View Reports</div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Unit Transfer -->
+                <li class="menu-item has-children">
+                    <a href="javascript:void(0);" class="menu-item-button">
+                        <div class="icon"><i class="icon-shuffle"></i></div>
+                        <div class="text">Unit Transfer</div>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="sub-menu-item">
+                            <a href="https://gyansheela.geegatech.online/unittransfer/create" class="">
+                                <div class="text">Initiate Transfer</div>
+                            </a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="https://gyansheela.geegatech.online/unittransfer" class="">
+                                <div class="text">Transfer History</div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Brokerage -->
+                <li class="menu-item has-children">
+                    <a href="javascript:void(0);" class="menu-item-button">
+                        <div class="icon"><i class="icon-users"></i></div>
+                        <div class="text">Brokerage</div>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="sub-menu-item">
+                            <a href="https://gyansheela.geegatech.online/brokerage/create" class="">
+                                <div class="text">Add Brokerage</div>
+                            </a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="https://gyansheela.geegatech.online/brokerage" class="">
+                                <div class="text">Brokerage List</div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <!-- Booking -->
+                <li class="menu-item has-children">
+                    <a href="javascript:void(0);" class="menu-item-button">
+                        <div class="icon"><i class="icon-calendar"></i></div>
+                        <div class="text">Bookings</div>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="sub-menu-item">
+                            <a href="https://gyansheela.geegatech.online/bookings/create" class="">
+                                <div class="text">Add Booking</div>
+                            </a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="https://gyansheela.geegatech.online/bookings" class="">
+                                <div class="text">Booking List</div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- documnetation -->
+                <li class="menu-item has-children">
+                    <a href="javascript:void(0);" class="menu-item-button">
+                        <div class="icon"><i class="icon-calendar"></i></div>
+                        <div class="text">Documentation</div>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="sub-menu-item">
+                            <a href="https://gyansheela.geegatech.online/documents/create" class="">
+                                <div class="text">Add Documents</div>
+                            </a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="https://gyansheela.geegatech.online/documents" class="">
+                                <div class="text">Documents List</div>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="menu-item has-children">
+                    <a href="javascript:void(0);" class="menu-item-button">
+                        <div class="icon"><i class="icon-user"></i></div>
+                        <div class="text">User</div>
+                    </a>
+                    <ul class="sub-menu">
+                        <li class="sub-menu-item">
+                            <a href="https://gyansheela.geegatech.online/user" class="">
+                                <div class="text">All user</div>
+                            </a>
+                        </li>
+                        <li class="sub-menu-item">
+                            <a href="https://gyansheela.geegatech.online/user/create" class="">
+                                <div class="text">Add new user</div>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+
+                            </ul>
+        </div>
+       
+     
+
+
+    </div>
+
+</div>
+
+<!-- #wrapper -->
+
+<div class="main-content">
+    <!-- main-content-wrap -->
+    <div class="main-content-inner">
+        <!-- main-content-wrap -->
+        <div class="main-content-wrap">
+            <div class="tf-section-4 mb-30">
+                <!-- chart-default -->
+                <div class="wg-chart-default">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap14">
+                            <div class="image type-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="52" viewBox="0 0 48 52"
+                                    fill="none">
+                                    <path
+                                        d="M19.1094 2.12943C22.2034 0.343099 26.0154 0.343099 29.1094 2.12943L42.4921 9.85592C45.5861 11.6423 47.4921 14.9435 47.4921 18.5162V33.9692C47.4921 37.5418 45.5861 40.8431 42.4921 42.6294L29.1094 50.3559C26.0154 52.1423 22.2034 52.1423 19.1094 50.3559L5.72669 42.6294C2.63268 40.8431 0.726688 37.5418 0.726688 33.9692V18.5162C0.726688 14.9435 2.63268 11.6423 5.72669 9.85592L19.1094 2.12943Z"
+                                        fill="#22C55E" />
+                                </svg>
+                                <i class="icon-shopping-bag"></i>
+                            </div>
+                            <div>
+                                <div class="body-text mb-2">Total Booking</div>
+                                <h4>83</h4>
+                            </div>
+                        </div>
+                      
+                    </div>
+                    <div class="wrap-chart">
+                        <div id="line-chart-1"></div>
+                    </div>
+                </div>
+                <!-- /chart-default -->
+                <!-- chart-default -->
+                <div class="wg-chart-default">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap14">
+                            <div class="image type-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="52" viewBox="0 0 48 52"
+                                    fill="none">
+                                    <path
+                                        d="M19.1094 2.12943C22.2034 0.343099 26.0154 0.343099 29.1094 2.12943L42.4921 9.85592C45.5861 11.6423 47.4921 14.9435 47.4921 18.5162V33.9692C47.4921 37.5418 45.5861 40.8431 42.4921 42.6294L29.1094 50.3559C26.0154 52.1423 22.2034 52.1423 19.1094 50.3559L5.72669 42.6294C2.63268 40.8431 0.726688 37.5418 0.726688 33.9692V18.5162C0.726688 14.9435 2.63268 11.6423 5.72669 9.85592L19.1094 2.12943Z"
+                                        fill="#FF5200" />
+                                </svg>
+                                <i class="icon-dollar-sign"></i>
+                            </div>
+                            <div>
+                                <div class="body-text mb-2">Total Inventory</div>
+                                <h4>24</h4>
+                            </div>
+                        </div>
+                        <!-- <div class="box-icon-trending down">
+                            <i class="icon-trending-down"></i>
+                            <div class="body-title number">1.56%</div>
+                        </div> -->
+                    </div>
+                    <div class="wrap-chart">
+                        <div id="line-chart-2"></div>
+                    </div>
+                </div>
+                <!-- /chart-default -->
+                <!-- chart-default -->
+                <div class="wg-chart-default">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap14">
+                            <div class="image type-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="52" viewBox="0 0 48 52"
+                                    fill="none">
+                                    <path
+                                        d="M19.1094 2.12943C22.2034 0.343099 26.0154 0.343099 29.1094 2.12943L42.4921 9.85592C45.5861 11.6423 47.4921 14.9435 47.4921 18.5162V33.9692C47.4921 37.5418 45.5861 40.8431 42.4921 42.6294L29.1094 50.3559C26.0154 52.1423 22.2034 52.1423 19.1094 50.3559L5.72669 42.6294C2.63268 40.8431 0.726688 37.5418 0.726688 33.9692V18.5162C0.726688 14.9435 2.63268 11.6423 5.72669 9.85592L19.1094 2.12943Z"
+                                        fill="#CBD5E1" />
+                                </svg>
+                                <i class="icon-file"></i>
+                            </div>
+                            <div>
+                                <div class="body-text mb-2">Total Projects</div>
+                                <h4>15</h4>
+                            </div>
+                        </div>
+                       
+                    </div>
+                    <div class="wrap-chart">
+                        <div id="line-chart-3"></div>
+                    </div>
+                </div>
+                <!-- /chart-default -->
+             
+            </div>
+         
+        </div>
+        <!-- /main-content-wrap -->
+    </div>
+    <!-- bottom-page -->
+    <div class="bottom-page">
+        <div class="body-text">Copyright © 2024 Gyansheela. Design by Geega technologies</div>
+        <i class="icon-heart"></i>
+        <div class="body-text">by </a> All rights reserved.</div>
+    </div>
+</div>
+</div>
+
+
+</div>
+</div>
+
+<!-- /layout-wrap -->
+</div>
+<!-- /#page -->
+</div>
+<!-- /#wrapper -->
+<!-- Javascript -->
+
+<script src="https://gyansheela.geegatech.online/assets/js/notify.min.js"></script>
+<script src="https://gyansheela.geegatech.online/assets/js/bootstrap.min.js"></script>
+<script src="https://gyansheela.geegatech.online/assets/js/bootstrap-select.min.js"></script>
+<script src="https://gyansheela.geegatech.online/assets/js/zoom.js"></script>
+<script src="https://gyansheela.geegatech.online/assets/js/apexcharts/apexcharts.js"></script>
+<script src="https://gyansheela.geegatech.online/assets/js/apexcharts/line-chart-1.js"></script>
+<script src="https://gyansheela.geegatech.online/assets/js/apexcharts/line-chart-2.js"></script>
+<script src="https://gyansheela.geegatech.online/assets/js/apexcharts/line-chart-3.js"></script>
+<script src="https://gyansheela.geegatech.online/assets/js/apexcharts/line-chart-4.js"></script>
+<script src="https://gyansheela.geegatech.online/assets/js/apexcharts/line-chart-5.js"></script>
+<script src="https://gyansheela.geegatech.online/assets/js/apexcharts/line-chart-6.js"></script>
+<script src="https://gyansheela.geegatech.online/assets/js/switcher.js"></script>
+<script src="https://gyansheela.geegatech.online/assets/js/theme-settings.js"></script>
+<script src="https://gyansheela.geegatech.online/assets/js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://gyansheela.geegatech.online/assets/js/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+<script>
+    // Check if a success message is present in session and show it
+    
+    // Check if an error message is present in session and show it
+    </script>
+<script>
+
+    //$('.select2').select2();
+
+    // Get the dropzone element
+    const dropzone = document.getElementById('dropzone');
+
+    // Prevent default behavior for drag-and-drop events
+    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+        dropzone.addEventListener(eventName, preventDefaults, false);
+    });
+
+    function preventDefaults(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+
+    // Highlight dropzone when file is dragged over
+    ['dragenter', 'dragover'].forEach(eventName => {
+        dropzone.addEventListener(eventName, highlight, false);
+    });
+
+    // Unhighlight dropzone when file is dragged out
+    ['dragleave', 'drop'].forEach(eventName => {
+        dropzone.addEventListener(eventName, unhighlight, false);
+    });
+
+    function highlight() {
+        dropzone.classList.add('highlight');
+    }
+
+    function unhighlight() {
+        dropzone.classList.remove('highlight');
+    }
+
+    // Handle file selection event
+    const fileInput = document.getElementById('myFile');
+    fileInput.addEventListener('change', function() {
+        const files = this.files;
+        handleFiles(files);
+    });
+
+    // Handle file drop event
+    dropzone.addEventListener('drop', function(e) {
+        const files = e.dataTransfer.files;
+        handleFiles(files);
+    });
+
+    // Function to handle uploaded files
+    function handleFiles(files) {
+        if (files.length > 0) {
+            const file = files[0];
+
+            // Display image preview
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const previewImage = document.getElementById('previewImage');
+                previewImage.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+</script>
+
+
+</body>
+
+</html>

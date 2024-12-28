@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+
+        .game-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        input[type="number"] {
+            width: 60px;
+            padding: 5px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #playAgainButton {
+            background-color: #ff6347;
+        }
+
+        #playAgainButton:hover {
+            background-color: #ff4d2a;
+        }
+
+        #result {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Guess the Number Game</h1>
+        <p>Guess the number between 1 and 100</p>
+        
+        <div>
+            <label for="userGuess">Your Guess: </label>
+            <input type="number" id="userGuess" min="1" max="100">
+            <button onclick="checkGuess()">Submit Guess</button>
+        </div>
+
+        <p id="result"></p>
+        <p>Attempts: <span id="attempts">0</span></p>
+        <button id="playAgainButton" onclick="orkhelega()" style="display: none;">Play Again</button>
+    </div>
+
+    <script>
+        let randomNumber;
+        let attempts = 0;
+
+        function startGame() {
+            randomNumber = Math.floor(Math.random() * 100) + 1; // Random number between 1 and 100
+            attempts = 0;
+            document.getElementById('attempts').textContent = attempts;
+            document.getElementById('result').textContent = '';
+            document.getElementById('playAgainButton').style.display = 'none';
+        }
+
+        function checkGuess() {
+            const userGuess = document.getElementById('userGuess').value;
+            attempts++;
+
+            if (userGuess < 1 || userGuess > 100 || isNaN(userGuess)) {
+                document.getElementById('result').textContent = 'Please enter a number between 1 and 100.';
+                return;
+            }
+
+            if (userGuess == randomNumber) {
+                document.getElementById('result').textContent = `Congratulations! You guessed the number ${randomNumber} in ${attempts} attempts.`;
+                document.getElementById('playAgainButton').style.display = 'block';
+            } else if (userGuess < randomNumber) {
+                document.getElementById('result').textContent = 'Too low! Try again.';
+            } else {
+                document.getElementById('result').textContent = 'Too high! Try again.';
+            }
+
+            document.getElementById('attempts').textContent = attempts;
+        }
+
+        function playAgain() {
+            document.getElementById('userGuess').value = '';
+            startGame();
+        }
+
+        // Start the game when the page loads
+        startGame();
+    </script>
+</body>
+</html>
