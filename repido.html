@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapido Captain App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .rapido-yellow {
+            background-color: #FFD700;
+        }
+
+        .rapido-black {
+            background-color: #000000;
+        }
+
+        .slide {
+            display: none;
+        }
+
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .file-upload {
+            border: 2px dashed #ccc;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .file-upload:hover {
+            border-color: #FFD700;
+        }
+
+        .otp-input {
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            font-size: 18px;
+            margin: 0 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .otp-input:focus {
+            border-color: #FFD700;
+            box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
+        }
+
+        .rapido-logo {
+            color: #FFD700;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .ride-animation {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .tab-active {
+            border-bottom: 2px solid #FFD700;
+            color: black;
+            font-weight: bold;
+        }
+
+        .tab-inactive {
+            color: #6B7280;
+        }
+
+        .transaction-card {
+            transition: all 0.3s;
+        }
+
+        .transaction-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <div class="container mx-auto max-w-md min-h-screen bg-white shadow-lg relative pb-16">
+        <!-- Login Screen -->
+        <div id="login-screen" class="slide active p-6">
+            <div class="flex justify-center mb-8">
+                <div class="rapido-black text-white p-3 rounded-full">
+                    <span class="rapido-logo">Rapido</span>
+                </div>
+            </div>
+            <h1 class="text-2xl font-bold text-center mb-6">कैप्टन लॉगिन</h1>
+
+            <div class="mb-4">
+                <label class="block text-gray-700 mb-2">मोबाइल नंबर</label>
+                <div class="flex">
+                    <span class="inline-flex items-center px-3 rounded-l-md bg-gray-200 text-gray-700">+91</span>
+                    <input type="tel" id="mobile-number" class="flex-1 p-2 border rounded-r-md"
+                        placeholder="मोबाइल नंबर दर्ज करें" maxlength="10" pattern="[0-9]{10}"
+                        title="10 अंकों का मोबाइल नंबर">
+                </div>
+                <p id="mobile-error" class="text-red-500 text-sm mt-1 hidden">कृपया वैध मोबाइल नंबर दर्ज करें</p>
+            </div>
+
+            <button onclick="sendOTP()"
+                class="w-full rapido-yellow text-black py-3 rounded-md font-bold mb-4 hover:bg-yellow-600 transition">
+                OTP भेजें
+            </button>
+
+            <div id="otp-section" class="hidden">
+                <div class="mb-8">
+                    <label class="block text-gray-700 mb-4 text-center">OTP दर्ज करें (992818)</label>
+                    <div class="flex justify-center mb-6">
+                        <input type="text" maxlength="1" class="otp-input" oninput="moveToNext(this, 'otp2')">
+                        <input type="text" maxlength="1" id="otp2" class="otp-input" oninput="moveToNext(this, 'otp3')">
+                        <input type="text" maxlength="1" id="otp3" class="otp-input" oninput="moveToNext(this, 'otp4')">
+                        <input type="text" maxlength="1" id="otp4" class="otp-input" oninput="moveToNext(this, 'otp5')">
+                        <input type="text" maxlength="1" id="otp5" class="otp-input" oninput="moveToNext(this, 'otp6')">
+                        <input type="text" maxlength="1" id="otp6" class="otp-input" oninput="focusNext(this)">
+                    </div>
+                </div>
+
+                <button onclick="verifyOTP()"
+                    class="w-full rapido-yellow text-black py-3 rounded-md font-bold mb-2 hover:bg-yellow-600 transition">
+                    लॉगिन करें
+                </button>
+
+                <p class="text-center mt-4 text-sm text-gray-600">
+                    OTP नहीं मिला? <a href="#" onclick="resendOTP()" class="text-yellow-600 font-medium">OTP फिर से
+                        भेजें</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Dashboard Screen -->
+        <div id="dashboard-screen" class="slide p-0">
+            <div class="rapido-black text-white p-4">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h1 class="font-bold text-xl">रैपिडो कैप्टन</h1>
+                        <p id="user-name" class="text-sm">नमस्ते, कैप्टन!</p>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button onclick="showScreen('profile-screen')"
+                            class="bg-yellow-500 rounded-full w-10 h-10 flex items-center justify-center text-white">
+                            <i class="fas fa-user"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex justify-between mt-6">
+                    <div class="text-center px-2">
+                        <p class="text-gray-300 text-sm mb-1">कमाई</p>
+                        <p id="earnings" class="font-bold text-lg">₹1250</p>
+                    </div>
+                    <div class="text-center px-2">
+                        <p class="text-gray-300 text-sm mb-1">राइड्स</p>
+                        <p id="total-rides" class="font-bold text-lg">12</p>
+                    </div>
+                    <div class="text-center px-2">
+                        <p class="text-gray-300 text-sm mb-1">रेटिंग</p>
+                        <p id="rating" class="font-bold text-lg">4.8 <i class="fas fa-star text-yellow-400"></i></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-4">
+                <!-- KYC Verification Section -->
+                <div class="bg-white rounded-xl shadow-md p-4 mb-6 border border-gray-100">
+                    <h2 class="font-bold text-lg mb-4 text-center">KYC वेरिफिकेशन</h2>
+
+                    <div class="space-y-4">
+                        <!-- PAN Card -->
+                        <div>
+                            <label class="block text-gray-700 mb-2">PAN कार्ड</label>
+                            <div class="file-upload mb-2" onclick="document.getElementById('pan-file').click()">
+                                <i class="fas fa-cloud-upload-alt text-3xl text-gray-400 mb-2"></i>
+                                <p class="text-gray-600 font-medium">PAN कार्ड अपलोड करें</p>
+                                <p class="text-xs text-gray-500 mt-1">JPG, PNG या PDF (Max 2MB)</p>
+                                <input type="file" id="pan-file" class="hidden" accept="image/*,.pdf">
+                            </div>
+                            <input type="text" id="pan-number"
+                                class="w-full p-2 border rounded-md focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                                placeholder="PAN नंबर (ABCDE1234F)">
+                        </div>
+
+                        <!-- Aadhar Card -->
+                        <div>
+                            <label class="block text-gray-700 mb-2">आधार कार्ड</label>
+                            <div class="file-upload mb-2" onclick="document.getElementById('aadhar-file').click()">
+                                <i class="fas fa-cloud-upload-alt text-3xl text-gray-400 mb-2"></i>
+                                <p class="text-gray-600 font-medium">आधार कार्ड अपलोड करें</p>
+                                <p class="text-xs text-gray-500 mt-1">JPG, PNG या PDF (Max 2MB)</p>
+                                <input type="file" id="aadhar-file" class="hidden" accept="image/*,.pdf">
+                            </div>
+                            <input type="text" id="aadhar-number"
+                                class="w-full p-2 border rounded-md focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                                placeholder="आधार नंबर (12 अंक)" maxlength="12">
+                        </div>
+
+                        <!-- Driving License -->
+                        <div>
+                            <label class="block text-gray-700 mb-2">ड्राइविंग लाइसेंस</label>
+                            <div class="file-upload mb-2" onclick="document.getElementById('dl-file').click()">
+                                <i class="fas fa-cloud-upload-alt text-3xl text-gray-400 mb-2"></i>
+                                <p class="text-gray-600 font-medium">ड्राइविंग लाइसेंस अपलोड करें</p>
+                                <p class="text-xs text-gray-500 mt-1">JPG, PNG या PDF (Max 2MB)</p>
+                                <input type="file" id="dl-file" class="hidden" accept="image/*,.pdf">
+                            </div>
+                            <input type="text" id="dl-number"
+                                class="w-full p-2 border rounded-md focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                                placeholder="ड्राइविंग लाइसेंस नंबर">
+                        </div>
+
+                        <!-- Vehicle RC -->
+                        <div>
+                            <label class="block text-gray-700 mb-2">बाइक RC</label>
+                            <div class="file-upload mb-2" onclick="document.getElementById('rc-file').click()">
+                                <i class="fas fa-cloud-upload-alt text-3xl text-gray-400 mb-2"></i>
+                                <p class="text-gray-600 font-medium">वाहन RC अपलोड करें</p>
+                                <p class="text-xs text-gray-500 mt-1">JPG, PNG या PDF (Max 2MB)</p>
+                                <input type="file" id="rc-file" class="hidden" accept="image/*,.pdf">
+                            </div>
+                            <input type="text" id="rc-number"
+                                class="w-full p-2 border rounded-md focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+                                placeholder="RC नंबर">
+                        </div>
+
+                        <!-- Profile Photo -->
+                        <div>
+                            <label class="block text-gray-700 mb-2">प्रोफाइल फोटो</label>
+                            <div class="file-upload mb-2" onclick="document.getElementById('profile-photo').click()">
+                                <i class="fas fa-cloud-upload-alt text-3xl text-gray-400 mb-2"></i>
+                                <p class="text-gray-600 font-medium">पासपोर्ट साइज फोटो अपलोड करें</p>
+                                <p class="text-xs text-gray-500 mt-1">JPG या PNG (Max 2MB)</p>
+                                <input type="file" id="profile-photo" class="hidden" accept="image/*">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="submitKYC()"
+                        class="w-full rapido-yellow text-black py-3 rounded-md font-bold mt-6 hover:bg-yellow-600 transition">
+                        KYC सबमिट करें
+                    </button>
+
+                    <div id="kyc-success"
+                        class="hidden mt-4 p-3 bg-green-100 border border-green-300 text-green-700 rounded-lg">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle mr-2 text-green-500"></i>
+                            <span>KYC सफलतापूर्वक सत्यापित हो गया!</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wallet Section -->
+                <div class="bg-white rounded-xl shadow-md p-6 mb-6 border border-gray-100">
+                    <h2 class="font-bold text-lg mb-4 text-center">आपका वॉलेट</h2>
+
+                    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 text-center mb-6">
+                        <p class="text-gray-600 mb-1">कुल बैलेंस</p>
+                        <p id="wallet-balance" class="text-3xl font-bold text-gray-800">₹1250</p>
+                    </div>
+
+                    <!-- Recent Transactions -->
+                    <div>
+                        <h3 class="font-semibold mb-3">हाल की ट्रांजैक्शन</h3>
+                        <div id="transactions" class="space-y-3">
+                            <div
+                                class="transaction-card bg-white border border-gray-100 rounded-lg p-3 hover:shadow-md">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <p class="font-medium">राइड कमाई</p>
+                                        <p class="text-gray-500 text-sm">आज, 10:30 AM</p>
+                                    </div>
+                                    <p class="text-green-500 font-bold">+₹120</p>
+                                </div>
+                            </div>
+                            <div
+                                class="transaction-card bg-white border border-gray-100 rounded-lg p-3 hover:shadow-md">
+                                <div class="flex justify-between items-center">
+                                    <div>
+                                        <p class="font-medium">राइड कमाई</p>
+                                        <p class="text-gray-500 text-sm">कल, 5:45 PM</p>
+                                    </div>
+                                    <p class="text-green-500 font-bold">+₹85</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="withdrawMoney()"
+                        class="w-full rapido-yellow text-black py-3 rounded-md font-bold mt-6 hover:bg-yellow-600 transition">
+                        पैसे निकालें
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="fixed bottom-0 left-0 right-0 bg-white border-t p-2 flex justify-around shadow-lg max-w-md mx-auto">
+            <button onclick="showScreen('dashboard-screen')" class="text-center text-yellow-600">
+                <i class="fas fa-home block text-xl mb-1"></i>
+                <span class="text-xs">होम</span>
+            </button>
+            <button onclick="showScreen('wallet-screen')" class="text-center text-gray-500">
+                <i class="fas fa-wallet block text-xl mb-1"></i>
+                <span class="text-xs">वॉलेट</span>
+            </button>
+            <button onclick="showScreen('rides-screen')" class="text-center text-gray-500">
+                <i class="fas fa-history block text-xl mb-1"></i>
+                <span class="text-xs">राइड्स</span>
+            </button>
+            <button onclick="showScreen('profile-screen')" class="text-center text-gray-500">
+                <i class="fas fa-user block text-xl mb-1"></i>
+                <span class="text-xs">प्रोफाइल</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Initialization
+        document.addEventListener('DOMContentLoaded', function () {
+            setupEventListeners();
+        });
+
+        function setupEventListeners() {
+            // Mobile number validation
+            document.getElementById('mobile-number').addEventListener('input', function () {
+                document.getElementById('mobile-error').classList.toggle('hidden', this.checkValidity());
+            });
+        }
+
+        // OTP Functions
+        function sendOTP() {
+            const mobileInput = document.getElementById('mobile-number');
+            if (!mobileInput.checkValidity()) {
+                document.getElementById('mobile-error').classList.remove('hidden');
+                mobileInput.focus();
+                return;
+            }
+
+            document.getElementById('otp-section').classList.remove('hidden');
+            document.getElementById('mobile-number').disabled = true;
+            document.querySelector('.otp-input').focus();
+
+            // Auto-fill OTP after 500ms (for demo)
+            setTimeout(() => {
+                const otpFields = document.querySelectorAll('.otp-input');
+                const testOTP = '992818'.split('');
+                otpFields.forEach((field, index) => {
+                    field.value = testOTP[index] || '';
+                });
+            }, 500);
+        }
+
+        function resendOTP() {
+            alert("OTP फिर से भेजा गया: 992818");
+        }
+
+        function verifyOTP() {
+            const otpFields = document.querySelectorAll('.otp-input');
+            let enteredOTP = '';
+            otpFields.forEach(field => {
+                enteredOTP += field.value;
+            });
+
+            if (enteredOTP !== '992818') {
+                alert("गलत OTP! कृपया 992818 प्रयास करें");
+                return;
+            }
+
+            // Login successful
+            const mobileNumber = document.getElementById('mobile-number').value;
+            document.getElementById('user-name').textContent = `नमस्ते, ${mobileNumber}`;
+            showScreen('dashboard-screen');
+
+            // Enable mobile number field again
+            document.getElementById('mobile-number').disabled = false;
+        }
+
+        function moveToNext(current, nextId) {
+            if (current.value.length === 1) {
+                document.getElementById(nextId).focus();
+            }
+        }
+
+        function focusNext(current) {
+            if (current.value.length === 1) {
+                current.blur();
+            }
+        }
+
+        // KYC Functions
+        function submitKYC() {
+            const panNumber = document.getElementById('pan-number').value.trim();
+            const aadharNumber = document.getElementById('aadhar-number').value.trim();
+            const dlNumber = document.getElementById('dl-number').value.trim();
+            const rcNumber = document.getElementById('rc-number').value.trim();
+
+            if (!panNumber || !aadharNumber || !dlNumber || !rcNumber) {
+                alert("कृपया सभी आवश्यक जानकारी भरें");
+                return;
+            }
+
+            // Simulate KYC verification
+            document.getElementById('kyc-success').classList.remove('hidden');
+            setTimeout(() => {
+                alert("KYC वेरिफिकेशन सफल! अब आप पैसे निकाल सकते हैं");
+            }, 800);
+        }
+
+        // Wallet Functions
+        function withdrawMoney() {
+            if (!document.getElementById('kyc-success').classList.contains('hidden')) {
+                const amount = prompt("निकासी राशि दर्ज करें (₹200 से अधिक):");
+                if (amount && parseFloat(amount) >= 200) {
+                    const walletBalance = document.getElementById('wallet-balance');
+                    const currentBalance = parseInt(walletBalance.textContent.replace('₹', ''));
+
+                    if (parseFloat(amount) > currentBalance) {
+                        alert("आपके पास पर्याप्त बैलेंस नहीं है");
+                        return;
+                    }
+
+                    // Add withdrawal transaction
+                    const transactionsDiv = document.getElementById('transactions');
+                    const newTransaction = document.createElement('div');
+                    newTransaction.className = 'transaction-card bg-white border border-gray-100 rounded-lg p-3 hover:shadow-md';
+                    newTransaction.innerHTML = `
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <p class="font-medium">बैंक ट्रांसफर</p>
+                                <p class="text-gray-500 text-sm">${new Date().toLocaleString('hi-IN')}</p>
+                            </div>
+                            <p class="text-red-500 font-bold">-₹${amount}</p>
+                        </div>
+                    `;
+                    transactionsDiv.prepend(newTransaction);
+
+                    // Update balance
+                    walletBalance.textContent = `₹${currentBalance - parseFloat(amount)}`;
+                    alert(`₹${amount} की निकासी रिक्वेस्ट सफलतापूर्वक दर्ज की गई`);
+                }
+            } else {
+                alert("कृपया पहले अपना KYC पूरा करें");
+            }
+        }
+
+        // Navigation
+        function showScreen(screenId) {
+            document.querySelectorAll('.slide').forEach(slide => {
+                slide.classList.remove('active');
+            });
+            document.getElementById(screenId).classList.add('active');
+        }
+    </script>
+</body>
+
+</html>
