@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ringtone Master Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Sidebar Styles */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -260px;
+            width: 260px;
+            height: 100vh;
+            background: linear-gradient(180deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        
+        .sidebar.open {
+            left: 0;
+        }
+        
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            margin: 4px 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .sidebar-item:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        .sidebar-item.active {
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        .sidebar-item i {
+            margin-right: 12px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        /* Overlay Styles */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 999;
+            display: none;
+        }
+        
+        .overlay.open {
+            display: block;
+        }
+        
+        /* Main Content Styles */
+        .main-content {
+            margin-left: 0;
+            min-height: 100vh;
+            transition: margin-left 0.3s ease;
+        }
+        
+        @media (min-width: 768px) {
+            .sidebar {
+                left: 0;
+            }
+            .main-content {
+                margin-left: 260px;
+            }
+            .overlay {
+                display: none !important;
+            }
+        }
+        
+        /* Tab Content Styles */
+        .tab-content {
+            display: none;
+            padding: 20px;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Badge Styles */
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 1.5;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        /* Audio Player Styles */
+        .audio-player {
+            width: 100%;
+            background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);
+            border-radius: 6px;
+            margin-top: 12px;
+        }
+        
+        /* Status Indicator */
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+        
+        .status-online {
+            background-color: #10b981;
+        }
+        
+        .status-offline {
+            background-color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <!-- Overlay for Mobile -->
+    <div id="overlay" class="overlay"></div>
+    
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <div class="p-4 flex items-center justify-between border-b border-white border-opacity-10">
+            <div class="flex items-center">
+                <i class="fas fa-headphones text-xl mr-2"></i>
+                <h1 class="text-lg font-bold">Ringtone Master</h1>
+            </div>
+            <button id="closeSidebar" class="md:hidden">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <nav class="p-2">
+            <a href="#" data-tab="dashboard" class="sidebar-item active">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" data-tab="ringtones" class="sidebar-item">
+                <i class="fas fa-music"></i>
+                <span>Ringtones</span>
+                <span class="badge ml-auto">CRUD</span>
+            </a>
+            <a href="#" data-tab="users" class="sidebar-item">
+                <i class="fas fa-users"></i>
+                <span>Users</span>
+                <span class="badge ml-auto">5,876</span>
+            </a>
+            <a href="#" data-tab="admins" class="sidebar-item">
+                <i class="fas fa-user-shield"></i>
+                <span>Admins</span>
+                <span class="badge ml-auto">3</span>
+            </a>
+            <a href="#" data-tab="helpdesk" class="sidebar-item">
+                <i class="fas fa-headset"></i>
+                <span>Helpdesk</span>
+                <span class="badge ml-auto">12</span>
+            </a>
+        </nav>
+        
+        <div class="absolute bottom-0 left-0 right-0 p-4 border-t border-white border-opacity-10">
+            <div class="flex items-center p-2 bg-white bg-opacity-10 rounded-lg">
+                <div class="relative mr-3">
+                    <div class="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <span class="status-indicator status-online absolute bottom-0 right-0"></span>
+                </div>
+                <div>
+                    <p class="text-sm font-medium">Super Admin</p>
+                    <p class="text-xs opacity-75">admin@ringtonemaster.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Mobile Header -->
+        <header class="bg-white shadow-sm p-4 flex items-center justify-between md:hidden">
+            <button id="menuButton">
+                <i class="fas fa-bars text-xl text-gray-500"></i>
+            </button>
+            <h1 class="text-lg font-bold">Dashboard</h1>
+            <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center">
+                <i class="fas fa-bell text-indigo-600"></i>
+            </div>
+        </header>
+        
+        <!-- Tab Contents -->
+        <div class="container mx-auto px-4 py-6">
+            <!-- Dashboard Tab -->
+            <div id="dashboard" class="tab-content active">
+                <h1 class="text-2xl font-bold mb-6">Dashboard Overview</h1>
+                
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <div class="flex justify-between">
+                            <div>
+                                <p class="text-sm text-gray-500">Total Ringtones</p>
+                                <p class="text-2xl font-bold mt-1">1,248</p>
+                            </div>
+                            <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600">
+                                <i class="fas fa-music"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <div class="flex justify-between">
+                            <div>
+                                <p class="text-sm text-gray-500">Active Users</p>
+                                <p class="text-2xl font-bold mt-1">5,876</p>
+                            </div>
+                            <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                                <i class="fas fa-users"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <div class="flex justify-between">
+                            <div>
+                                <p class="text-sm text-gray-500">Today's Plays</p>
+                                <p class="text-2xl font-bold mt-1">3,142</p>
+                            </div>
+                            <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+                        <div class="flex justify-between">
+                            <div>
+                                <p class="text-sm text-gray-500">Active Admins</p>
+                                <p class="text-2xl font-bold mt-1">2/3</p>
+                            </div>
+                            <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center text-purple-600">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                    <h2 class="text-xl font-bold mb-4">Recent Activity</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 mr-3">
+                                <i class="fas fa-music"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">New ringtone added</p>
+                                <p class="text-sm text-gray-500">"Bollywood Beats" was added to the library</p>
+                                <p class="text-xs text-gray-400 mt-1">2 hours ago</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 mr-3">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium">New user registered</p>
+                                <p class="text-sm text-gray-500">+91 98765 43210 joined the service</p>
+                                <p class="text-xs text-gray-400 mt-1">5 hours ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ringtones Tab -->
+            <div id="ringtones" class="tab-content">
+                <div class="flex justify-between items-center mb-8">
+                    <h1 class="text-2xl font-bold">Ringtones Management</h1>
+                    <button class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 flex items-center">
+                        <i class="fas fa-plus mr-2"></i> Add Ringtone
+                    </button>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 flex flex-col items-center justify-center cursor-pointer hover:bg-gray-50 transition-colors">
+                        <i class="fas fa-plus-circle text-4xl text-indigo-500 mb-2"></i>
+                        <p class="text-gray-700">Upload New Ringtone</p>
+                        <p class="text-xs text-gray-500 mt-1">(MP3 format only)</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-medium">Bollywood Beats</h3>
+                                <p class="text-xs text-gray-500">Duration: 15s | Format: MP3</p>
+                            </div>
+                            <div class="flex space-x-2">
+                                <button class="text-red-500 hover:text-red-700">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                                <button class="text-indigo-500 hover:text-indigo-700">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <audio controls class="audio-player">
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support audio.
+                        </audio>
+                        <div class="mt-3 flex justify-between items-center">
+                            <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Assigned to 8 users</span>
+                            <span class="text-xs text-gray-500">ID: RT001</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-medium">Classic Bell</h3>
+                                <p class="text-xs text-gray-500">Duration: 12s | Format: MP3</p>
+                            </div>
+                            <div class="flex space-x-2">
+                                <button class="text-red-500 hover:text-red-700">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                                <button class="text-indigo-500 hover:text-indigo-700">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <audio controls class="audio-player">
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support audio.
+                        </audio>
+                        <div class="mt-3 flex justify-between items-center">
+                            <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Assigned to 5 users</span>
+                            <span class="text-xs text-gray-500">ID: RT002</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Users Tab -->
+            <div id="users" class="tab-content">
+                <div class="flex justify-between items-center mb-8">
+                    <h1 class="text-2xl font-bold">Users Management</h1>
+                    <div class="flex space-x-3">
+                        <div class="relative">
+                            <input type="text" placeholder="Search users..." class="pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+                            <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                        </div>
+                        <button class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 flex items-center">
+                            <i class="fas fa-filter mr-2"></i> Filter
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">User ID</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Phone Number</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Active</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Assigned Ringtone</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">+91 9876543210</td>
+                                <td class="px-6 py-4 whitespace-nowrap">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                        <span class="status-indicator status-online"></span>
+                                        Active
+                                    </span>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm
