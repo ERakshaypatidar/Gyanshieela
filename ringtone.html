@@ -93,23 +93,9 @@
       font-weight: 600;
       background-color: rgba(255,255,255,0.2);
     }
-    .status-indicator {
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      margin-right: 6px;
-    }
-    .status-online {
-      background-color: #10b981;
-    }
-    .status-offline {
-      background-color: #6b7280;
-    }
   </style>
 </head>
 <body>
-  <!-- Overlay -->
   <div id="overlay" class="overlay"></div>
 
   <!-- Sidebar -->
@@ -123,171 +109,59 @@
         <i class="fas fa-times"></i>
       </button>
     </div>
-
     <nav class="p-2">
       <a href="#" data-tab="dashboard" class="sidebar-item active">
         <i class="fas fa-tachometer-alt"></i> <span>Dashboard</span>
       </a>
       <a href="#" data-tab="ringtones" class="sidebar-item">
         <i class="fas fa-music"></i> <span>Ringtones</span>
-        <span class="badge ml-auto">CRUD</span>
       </a>
       <a href="#" data-tab="users" class="sidebar-item">
         <i class="fas fa-users"></i> <span>Users</span>
-        <span class="badge ml-auto">5,876</span>
-      </a>
-      <a href="#" data-tab="admins" class="sidebar-item">
-        <i class="fas fa-user-shield"></i> <span>Admins</span>
-        <span class="badge ml-auto">3</span>
-      </a>
-      <a href="#" data-tab="helpdesk" class="sidebar-item">
-        <i class="fas fa-headset"></i> <span>Helpdesk</span>
-        <span class="badge ml-auto">12</span>
       </a>
     </nav>
-
-    <div class="absolute bottom-0 left-0 right-0 p-4 border-t border-white border-opacity-10">
-      <div class="flex items-center p-2 bg-white bg-opacity-10 rounded-lg">
-        <div class="relative mr-3">
-          <div class="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center">
-            <i class="fas fa-user"></i>
-          </div>
-          <span class="status-indicator status-online absolute bottom-0 right-0"></span>
-        </div>
-        <div>
-          <p class="text-sm font-medium">Super Admin</p>
-          <p class="text-xs opacity-75">admin@ringtonemaster.com</p>
-        </div>
-      </div>
-    </div>
   </div>
 
   <!-- Main Content -->
   <div class="main-content">
-    <!-- Mobile Header -->
     <header class="bg-white shadow-sm p-4 flex items-center justify-between md:hidden">
       <button id="menuButton">
         <i class="fas fa-bars text-xl text-gray-500"></i>
       </button>
       <h1 class="text-lg font-bold">Dashboard</h1>
-      <div class="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center">
-        <i class="fas fa-bell text-indigo-600"></i>
-      </div>
     </header>
 
-    <!-- Tab Content Wrapper -->
     <div class="container mx-auto px-4 py-6">
-
-      <!-- Dashboard Tab -->
+      <!-- Dashboard -->
       <div id="dashboard" class="tab-content active">
         <h1 class="text-2xl font-bold mb-6">Dashboard Overview</h1>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-          <div class="bg-white shadow-md rounded-lg p-6 flex items-center">
-            <div class="bg-indigo-100 p-4 rounded-full text-indigo-600 mr-4">
-              <i class="fas fa-music text-xl"></i>
-            </div>
-            <div>
-              <p class="text-sm text-gray-500">Total Ringtones</p>
-              <p class="text-xl font-semibold">120</p>
-            </div>
-          </div>
-          <div class="bg-white shadow-md rounded-lg p-6 flex items-center">
-            <div class="bg-green-100 p-4 rounded-full text-green-600 mr-4">
-              <i class="fas fa-users text-xl"></i>
-            </div>
-            <div>
-              <p class="text-sm text-gray-500">Total Users</p>
-              <p class="text-xl font-semibold">5876</p>
-            </div>
-          </div>
-          <div class="bg-white shadow-md rounded-lg p-6 flex items-center">
-            <div class="bg-yellow-100 p-4 rounded-full text-yellow-600 mr-4">
-              <i class="fas fa-user-shield text-xl"></i>
-            </div>
-            <div>
-              <p class="text-sm text-gray-500">Admins</p>
-              <p class="text-xl font-semibold">3</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-white shadow-md rounded-lg p-6">
-          <h2 class="text-lg font-semibold mb-4">Recent Ringtones</h2>
-          <ul class="space-y-2">
-            <li class="flex justify-between text-sm text-gray-700">
-              <span>Sad Violin</span>
-              <span class="text-gray-400">2 days ago</span>
-            </li>
-            <li class="flex justify-between text-sm text-gray-700">
-              <span>Happy Tune</span>
-              <span class="text-gray-400">3 days ago</span>
-            </li>
-            <li class="flex justify-between text-sm text-gray-700">
-              <span>Alert Beep</span>
-              <span class="text-gray-400">5 days ago</span>
-            </li>
-          </ul>
-        </div>
+        <p class="text-gray-600">Welcome to the admin dashboard!</p>
       </div>
 
       <!-- Ringtones Tab -->
       <div id="ringtones" class="tab-content">
         <h1 class="text-2xl font-bold mb-4">Ringtones Management</h1>
-        <p class="text-gray-700 mb-2">Here you can add, edit or delete ringtones.</p>
-        <ul class="list-disc list-inside text-gray-600">
-          <li>Ringtone: Sad Violin.mp3</li>
-          <li>Ringtone: Happy Tone.mp3</li>
-          <li>Ringtone: Alarm Sound.mp3</li>
-        </ul>
+        <form id="ringtoneForm" class="mb-4 flex gap-2">
+          <input type="text" id="ringtoneName" placeholder="Enter Ringtone Name" class="p-2 border rounded w-full">
+          <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded">Add</button>
+        </form>
+        <ul id="ringtoneList" class="list-disc list-inside text-gray-700 space-y-1"></ul>
       </div>
 
       <!-- Users Tab -->
       <div id="users" class="tab-content">
         <h1 class="text-2xl font-bold mb-4">Users Management</h1>
-        <p class="text-gray-700 mb-2">Manage registered users here.</p>
-        <table class="w-full text-left border mt-4">
+        <form id="userForm" class="mb-4 grid md:grid-cols-3 gap-2">
+          <input type="text" id="userName" placeholder="Name" class="p-2 border rounded">
+          <input type="email" id="userEmail" placeholder="Email" class="p-2 border rounded">
+          <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded">Add User</button>
+        </form>
+        <table class="w-full border">
           <thead class="bg-gray-100">
-            <tr>
-              <th class="p-2">Name</th>
-              <th class="p-2">Email</th>
-              <th class="p-2">Status</th>
-            </tr>
+            <tr><th class="p-2">Name</th><th class="p-2">Email</th><th class="p-2">Status</th><th class="p-2">Action</th></tr>
           </thead>
-          <tbody>
-            <tr class="border-t">
-              <td class="p-2">John Doe</td>
-              <td class="p-2">john@example.com</td>
-              <td class="p-2 text-green-600">Active</td>
-            </tr>
-            <tr class="border-t">
-              <td class="p-2">Jane Smith</td>
-              <td class="p-2">jane@example.com</td>
-              <td class="p-2 text-red-500">Inactive</td>
-            </tr>
-          </tbody>
+          <tbody id="userTable"></tbody>
         </table>
-      </div>
-
-      <!-- Admins Tab -->
-      <div id="admins" class="tab-content">
-        <h1 class="text-2xl font-bold mb-4">Admins Section</h1>
-        <p class="text-gray-700 mb-2">List of all admin users.</p>
-        <ul class="text-gray-600">
-          <li>👨‍💼 Super Admin - admin@ringtonemaster.com</li>
-          <li>👨‍💼 Moderator - mod@ringtonemaster.com</li>
-        </ul>
-      </div>
-
-      <!-- Helpdesk Tab -->
-      <div id="helpdesk" class="tab-content">
-        <h1 class="text-2xl font-bold mb-4">Helpdesk Support</h1>
-        <p class="text-gray-700 mb-2">User queries and support tickets.</p>
-        <ul class="space-y-2 text-gray-600">
-          <li>🆘 Ticket #101 - "Ringtone not downloading"</li>
-          <li>🆘 Ticket #102 - "App crashing on login"</li>
-          <li>🆘 Ticket #103 - "Unable to reset password"</li>
-        </ul>
       </div>
     </div>
   </div>
@@ -319,19 +193,95 @@
     sidebarItems.forEach(item => {
       item.addEventListener('click', () => {
         const tab = item.getAttribute('data-tab');
-
         sidebarItems.forEach(i => i.classList.remove('active'));
         tabContents.forEach(tc => tc.classList.remove('active'));
-
         item.classList.add('active');
         document.getElementById(tab)?.classList.add('active');
-
         if (window.innerWidth < 768) {
           sidebar.classList.remove('open');
           overlay.classList.remove('open');
         }
       });
     });
+
+    // Ringtone CRUD
+    const ringtoneForm = document.getElementById("ringtoneForm");
+    const ringtoneList = document.getElementById("ringtoneList");
+    const ringtones = [];
+
+    ringtoneForm.addEventListener("submit", e => {
+      e.preventDefault();
+      const name = document.getElementById("ringtoneName").value.trim();
+      if (name) {
+        ringtones.push(name);
+        updateRingtones();
+        ringtoneForm.reset();
+      }
+    });
+
+    function updateRingtones() {
+      ringtoneList.innerHTML = "";
+      ringtones.forEach((r, index) => {
+        const li = document.createElement("li");
+        li.textContent = r;
+        const del = document.createElement("button");
+        del.textContent = " ❌";
+        del.className = "text-red-600 ml-2";
+        del.onclick = () => {
+          ringtones.splice(index, 1);
+          updateRingtones();
+        };
+        li.appendChild(del);
+        ringtoneList.appendChild(li);
+      });
+    }
+
+    // Users CRUD with Active/Inactive
+    const userForm = document.getElementById("userForm");
+    const userTable = document.getElementById("userTable");
+    const users = [];
+
+    userForm.addEventListener("submit", e => {
+      e.preventDefault();
+      const name = document.getElementById("userName").value.trim();
+      const email = document.getElementById("userEmail").value.trim();
+      if (name && email) {
+        users.push({ name, email, active: true });
+        updateUsers();
+        userForm.reset();
+      }
+    });
+
+    function updateUsers() {
+      userTable.innerHTML = "";
+      users.forEach((user, index) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td class="p-2">${user.name}</td>
+          <td class="p-2">${user.email}</td>
+          <td class="p-2">
+            <span class="font-bold ${user.active ? 'text-green-600' : 'text-red-600'}">
+              ${user.active ? 'Active' : 'Inactive'}
+            </span>
+          </td>
+          <td class="p-2 space-x-2">
+            <button onclick="toggleStatus(${index})" class="text-blue-600">Toggle</button>
+            <button onclick="deleteUser(${index})" class="text-red-600">Delete</button>
+          </td>
+        `;
+        userTable.appendChild(tr);
+      });
+    }
+
+    function toggleStatus(index) {
+      users[index].active = !users[index].active;
+      updateUsers();
+    }
+
+    function deleteUser(index) {
+      users.splice(index, 1);
+      updateUsers();
+    }
   </script>
 </body>
 </html>
