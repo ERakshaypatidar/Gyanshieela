@@ -177,11 +177,11 @@
 
     <!-- Tab Content Wrapper -->
     <div class="container mx-auto px-4 py-6">
+
       <!-- Dashboard Tab -->
       <div id="dashboard" class="tab-content active">
         <h1 class="text-2xl font-bold mb-6">Dashboard Overview</h1>
 
-        <!-- Stats Cards -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
           <div class="bg-white shadow-md rounded-lg p-6 flex items-center">
             <div class="bg-indigo-100 p-4 rounded-full text-indigo-600 mr-4">
@@ -192,7 +192,6 @@
               <p class="text-xl font-semibold">120</p>
             </div>
           </div>
-
           <div class="bg-white shadow-md rounded-lg p-6 flex items-center">
             <div class="bg-green-100 p-4 rounded-full text-green-600 mr-4">
               <i class="fas fa-users text-xl"></i>
@@ -202,7 +201,6 @@
               <p class="text-xl font-semibold">5876</p>
             </div>
           </div>
-
           <div class="bg-white shadow-md rounded-lg p-6 flex items-center">
             <div class="bg-yellow-100 p-4 rounded-full text-yellow-600 mr-4">
               <i class="fas fa-user-shield text-xl"></i>
@@ -214,7 +212,6 @@
           </div>
         </div>
 
-        <!-- Recent Section -->
         <div class="bg-white shadow-md rounded-lg p-6">
           <h2 class="text-lg font-semibold mb-4">Recent Ringtones</h2>
           <ul class="space-y-2">
@@ -236,22 +233,61 @@
 
       <!-- Ringtones Tab -->
       <div id="ringtones" class="tab-content">
-        <h1 class="text-2xl font-bold">Ringtones Management</h1>
+        <h1 class="text-2xl font-bold mb-4">Ringtones Management</h1>
+        <p class="text-gray-700 mb-2">Here you can add, edit or delete ringtones.</p>
+        <ul class="list-disc list-inside text-gray-600">
+          <li>Ringtone: Sad Violin.mp3</li>
+          <li>Ringtone: Happy Tone.mp3</li>
+          <li>Ringtone: Alarm Sound.mp3</li>
+        </ul>
       </div>
 
       <!-- Users Tab -->
       <div id="users" class="tab-content">
-        <h1 class="text-2xl font-bold">Users Management</h1>
+        <h1 class="text-2xl font-bold mb-4">Users Management</h1>
+        <p class="text-gray-700 mb-2">Manage registered users here.</p>
+        <table class="w-full text-left border mt-4">
+          <thead class="bg-gray-100">
+            <tr>
+              <th class="p-2">Name</th>
+              <th class="p-2">Email</th>
+              <th class="p-2">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-t">
+              <td class="p-2">John Doe</td>
+              <td class="p-2">john@example.com</td>
+              <td class="p-2 text-green-600">Active</td>
+            </tr>
+            <tr class="border-t">
+              <td class="p-2">Jane Smith</td>
+              <td class="p-2">jane@example.com</td>
+              <td class="p-2 text-red-500">Inactive</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
       <!-- Admins Tab -->
       <div id="admins" class="tab-content">
-        <h1 class="text-2xl font-bold">Admins Section</h1>
+        <h1 class="text-2xl font-bold mb-4">Admins Section</h1>
+        <p class="text-gray-700 mb-2">List of all admin users.</p>
+        <ul class="text-gray-600">
+          <li>👨‍💼 Super Admin - admin@ringtonemaster.com</li>
+          <li>👨‍💼 Moderator - mod@ringtonemaster.com</li>
+        </ul>
       </div>
 
       <!-- Helpdesk Tab -->
       <div id="helpdesk" class="tab-content">
-        <h1 class="text-2xl font-bold">Helpdesk Support</h1>
+        <h1 class="text-2xl font-bold mb-4">Helpdesk Support</h1>
+        <p class="text-gray-700 mb-2">User queries and support tickets.</p>
+        <ul class="space-y-2 text-gray-600">
+          <li>🆘 Ticket #101 - "Ringtone not downloading"</li>
+          <li>🆘 Ticket #102 - "App crashing on login"</li>
+          <li>🆘 Ticket #103 - "Unable to reset password"</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -299,4 +335,3 @@
   </script>
 </body>
 </html>
-   
