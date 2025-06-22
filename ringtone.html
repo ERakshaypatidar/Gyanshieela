@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -8,280 +7,167 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f8fafc;
-      margin: 0;
-      padding: 0;
-    }
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: -260px;
-      width: 260px;
-      height: 100vh;
-      background: linear-gradient(180deg, #4f46e5 0%, #7c3aed 100%);
-      color: white;
-      transition: all 0.3s ease;
-      z-index: 1000;
-      overflow-y: auto;
-    }
-    .sidebar.open {
-      left: 0;
-    }
-    .sidebar-item {
-      display: flex;
-      align-items: center;
-      padding: 12px 16px;
-      margin: 4px 8px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .sidebar-item:hover {
-      background-color: rgba(255,255,255,0.1);
-    }
-    .sidebar-item.active {
-      background-color: rgba(255,255,255,0.2);
-    }
-    .sidebar-item i {
-      margin-right: 12px;
-      width: 20px;
-      text-align: center;
-    }
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0,0,0,0.5);
-      z-index: 999;
-      display: none;
-    }
-    .overlay.open {
-      display: block;
-    }
-    .main-content {
-      margin-left: 0;
-      min-height: 100vh;
-      transition: margin-left 0.3s ease;
-    }
-    @media (min-width: 768px) {
-      .sidebar {
-        left: 0;
-      }
-      .main-content {
-        margin-left: 260px;
-      }
-      .overlay {
-        display: none !important;
-      }
-    }
-    .tab-content {
-      display: none;
-      padding: 20px;
-    }
-    .tab-content.active {
-      display: block;
-    }
-    .badge {
-      display: inline-block;
-      padding: 2px 8px;
-      border-radius: 12px;
-      font-size: 12px;
-      font-weight: 600;
-      background-color: rgba(255,255,255,0.2);
-    }
+    body { font-family: 'Poppins', sans-serif; background-color: #f8fafc; margin: 0; padding: 0; }
+    .sidebar { position: fixed; top: 0; left: -260px; width: 260px; height: 100vh; background: linear-gradient(180deg, #4f46e5 0%, #7c3aed 100%); color: white; transition: all 0.3s ease; z-index: 1000; overflow-y: auto; }
+    .sidebar.open { left: 0; }
+    .sidebar-item { display: flex; align-items: center; padding: 12px 16px; margin: 4px 8px; border-radius: 6px; cursor: pointer; transition: all 0.2s ease; }
+    .sidebar-item:hover { background-color: rgba(255,255,255,0.1); }
+    .sidebar-item.active { background-color: rgba(255,255,255,0.2); }
+    .sidebar-item i { margin-right: 12px; width: 20px; text-align: center; }
+    .overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.5); z-index: 999; display: none; }
+    .overlay.open { display: block; }
+    .main-content { margin-left: 0; min-height: 100vh; transition: margin-left 0.3s ease; }
+    @media (min-width: 768px) { .sidebar { left: 0; } .main-content { margin-left: 260px; } .overlay { display: none !important; } }
+    .tab-content { display: none; padding: 20px; }
+    .tab-content.active { display: block; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 12px; font-weight: 600; background-color: rgba(255,255,255,0.2); }
   </style>
 </head>
 <body>
   <div id="overlay" class="overlay"></div>
-
-  <!-- Sidebar -->
   <div id="sidebar" class="sidebar">
     <div class="p-4 flex items-center justify-between border-b border-white border-opacity-10">
       <div class="flex items-center">
         <i class="fas fa-headphones text-xl mr-2"></i>
         <h1 class="text-lg font-bold">Ringtone Master</h1>
       </div>
-      <button id="closeSidebar" class="md:hidden">
-        <i class="fas fa-times"></i>
-      </button>
+      <button id="closeSidebar" class="md:hidden"><i class="fas fa-times"></i></button>
     </div>
     <nav class="p-2">
-      <a href="#" data-tab="dashboard" class="sidebar-item active">
-        <i class="fas fa-tachometer-alt"></i> <span>Dashboard</span>
-      </a>
-      <a href="#" data-tab="ringtones" class="sidebar-item">
-        <i class="fas fa-music"></i> <span>Ringtones</span>
-      </a>
-      <a href="#" data-tab="users" class="sidebar-item">
-        <i class="fas fa-users"></i> <span>Users</span>
-      </a>
+      <a href="#" data-tab="dashboard" class="sidebar-item active"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a>
+      <a href="#" data-tab="ringtones" class="sidebar-item"><i class="fas fa-music"></i> <span>Ringtones</span></a>
+      <a href="#" data-tab="users" class="sidebar-item"><i class="fas fa-users"></i> <span>Users</span></a>
+      <a href="#" data-tab="admins" class="sidebar-item"><i class="fas fa-user-shield"></i> <span>Admins</span></a>
+      <a href="#" data-tab="helpdesk" class="sidebar-item"><i class="fas fa-headset"></i> <span>Helpdesk</span></a>
     </nav>
   </div>
-
-  <!-- Main Content -->
   <div class="main-content">
     <header class="bg-white shadow-sm p-4 flex items-center justify-between md:hidden">
-      <button id="menuButton">
-        <i class="fas fa-bars text-xl text-gray-500"></i>
-      </button>
+      <button id="menuButton"><i class="fas fa-bars text-xl text-gray-500"></i></button>
       <h1 class="text-lg font-bold">Dashboard</h1>
     </header>
-
     <div class="container mx-auto px-4 py-6">
-      <!-- Dashboard -->
       <div id="dashboard" class="tab-content active">
         <h1 class="text-2xl font-bold mb-6">Dashboard Overview</h1>
-        <p class="text-gray-600">Welcome to the admin dashboard!</p>
+        <p class="text-gray-600">Quick summary of users, ringtones and system health.</p>
       </div>
-
-      <!-- Ringtones Tab -->
       <div id="ringtones" class="tab-content">
-        <h1 class="text-2xl font-bold mb-4">Ringtones Management</h1>
+        <h1 class="text-2xl font-bold mb-4">Manage Ringtones</h1>
         <form id="ringtoneForm" class="mb-4 flex gap-2">
-          <input type="text" id="ringtoneName" placeholder="Enter Ringtone Name" class="p-2 border rounded w-full">
-          <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded">Add</button>
+          <input type="text" id="ringtoneName" placeholder="Ringtone Title" class="p-2 border rounded w-1/3">
+          <input type="file" id="ringtoneFile" accept="audio/*" class="p-2 border rounded w-1/3">
+          <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded">Upload</button>
         </form>
-        <ul id="ringtoneList" class="list-disc list-inside text-gray-700 space-y-1"></ul>
+        <ul id="ringtoneList" class="space-y-2"></ul>
       </div>
-
-      <!-- Users Tab -->
       <div id="users" class="tab-content">
-        <h1 class="text-2xl font-bold mb-4">Users Management</h1>
-        <form id="userForm" class="mb-4 grid md:grid-cols-3 gap-2">
-          <input type="text" id="userName" placeholder="Name" class="p-2 border rounded">
+        <h1 class="text-2xl font-bold mb-4">Manage Users</h1>
+        <form id="userForm" class="mb-4 flex gap-2">
+          <input type="text" id="userName" placeholder="User Name" class="p-2 border rounded">
           <input type="email" id="userEmail" placeholder="Email" class="p-2 border rounded">
-          <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded">Add User</button>
+          <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded">Add</button>
         </form>
-        <table class="w-full border">
-          <thead class="bg-gray-100">
-            <tr><th class="p-2">Name</th><th class="p-2">Email</th><th class="p-2">Status</th><th class="p-2">Action</th></tr>
-          </thead>
+        <table class="w-full text-left">
+          <thead><tr><th>Name</th><th>Email</th><th>Status</th><th>Actions</th></tr></thead>
           <tbody id="userTable"></tbody>
         </table>
       </div>
+      <div id="admins" class="tab-content">
+        <h1 class="text-2xl font-bold mb-4">Manage Admins</h1>
+        <ul id="adminList" class="space-y-2"></ul>
+      </div>
+      <div id="helpdesk" class="tab-content">
+        <h1 class="text-2xl font-bold mb-4">Helpdesk Support</h1>
+        <p class="text-gray-700">Support ticket system coming soon.</p>
+      </div>
     </div>
   </div>
-
-  <!-- JavaScript -->
   <script>
-    const menuButton = document.getElementById('menuButton');
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('overlay');
-    const closeSidebar = document.getElementById('closeSidebar');
-    const sidebarItems = document.querySelectorAll('.sidebar-item');
-    const tabContents = document.querySelectorAll('.tab-content');
+    const tabs = document.querySelectorAll('.sidebar-item');
+    const contents = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      contents.forEach(c => c.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.tab).classList.add('active');
+    }));const ringtones = [];
+const ringtoneForm = document.getElementById('ringtoneForm');
+const ringtoneList = document.getElementById('ringtoneList');
+ringtoneForm.addEventListener('submit', e => {
+  e.preventDefault();
+  const name = document.getElementById('ringtoneName').value;
+  const file = document.getElementById('ringtoneFile').files[0];
+  if (name && file) {
+    ringtones.push({ name, file });
+    updateRingtoneList();
+    ringtoneForm.reset();
+  }
+});
+function updateRingtoneList() {
+  ringtoneList.innerHTML = '';
+  ringtones.forEach((r, i) => {
+    const li = document.createElement('li');
+    li.className = 'bg-white p-2 rounded shadow flex justify-between';
+    li.innerHTML = `${r.name} <span><button onclick="editRingtone(${i})" class="text-blue-600">Edit</button> <button onclick="deleteRingtone(${i})" class="text-red-600 ml-2">Delete</button></span>`;
+    ringtoneList.appendChild(li);
+  });
+}
+function deleteRingtone(i) {
+  ringtones.splice(i, 1);
+  updateRingtoneList();
+}
+function editRingtone(i) {
+  const r = ringtones[i];
+  document.getElementById('ringtoneName').value = r.name;
+  ringtones.splice(i, 1);
+  updateRingtoneList();
+}
 
-    menuButton?.addEventListener('click', () => {
-      sidebar.classList.add('open');
-      overlay.classList.add('open');
-    });
+const users = [];
+document.getElementById('userForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const name = document.getElementById('userName').value;
+  const email = document.getElementById('userEmail').value;
+  if (name && email) {
+    users.push({ name, email, active: true });
+    updateUsers();
+    e.target.reset();
+  }
+});
+function updateUsers() {
+  const table = document.getElementById('userTable');
+  table.innerHTML = '';
+  users.forEach((u, i) => {
+    const row = document.createElement('tr');
+    row.innerHTML = `<td>${u.name}</td><td>${u.email}</td><td class="${u.active ? 'text-green-600' : 'text-red-600'}">${u.active ? 'Active' : 'Inactive'}</td><td><button onclick="toggleUser(${i})" class="text-blue-600">Toggle</button> <button onclick="removeUser(${i})" class="text-red-600 ml-2">Delete</button></td>`;
+    table.appendChild(row);
+  });
+}
+function toggleUser(i) {
+  users[i].active = !users[i].active;
+  updateUsers();
+}
+function removeUser(i) {
+  users.splice(i, 1);
+  updateUsers();
+}
 
-    closeSidebar?.addEventListener('click', () => {
-      sidebar.classList.remove('open');
-      overlay.classList.remove('open');
-    });
+const admins = [
+  { name: 'Super Admin', email: 'admin@site.com', active: true },
+  { name: 'Support Admin', email: 'support@site.com', active: false }
+];
+const adminList = document.getElementById('adminList');
+function renderAdmins() {
+  adminList.innerHTML = '';
+  admins.forEach(a => {
+    const li = document.createElement('li');
+    li.className = 'bg-white p-3 rounded shadow flex justify-between';
+    li.innerHTML = `<span>${a.name} - ${a.email}</span><span class="${a.active ? 'text-green-600' : 'text-red-600'} font-semibold">${a.active ? 'Active' : 'Inactive'}</span>`;
+    adminList.appendChild(li);
+  });
+}
+renderAdmins();
 
-    overlay?.addEventListener('click', () => {
-      sidebar.classList.remove('open');
-      overlay.classList.remove('open');
-    });
-
-    sidebarItems.forEach(item => {
-      item.addEventListener('click', () => {
-        const tab = item.getAttribute('data-tab');
-        sidebarItems.forEach(i => i.classList.remove('active'));
-        tabContents.forEach(tc => tc.classList.remove('active'));
-        item.classList.add('active');
-        document.getElementById(tab)?.classList.add('active');
-        if (window.innerWidth < 768) {
-          sidebar.classList.remove('open');
-          overlay.classList.remove('open');
-        }
-      });
-    });
-
-    // Ringtone CRUD
-    const ringtoneForm = document.getElementById("ringtoneForm");
-    const ringtoneList = document.getElementById("ringtoneList");
-    const ringtones = [];
-
-    ringtoneForm.addEventListener("submit", e => {
-      e.preventDefault();
-      const name = document.getElementById("ringtoneName").value.trim();
-      if (name) {
-        ringtones.push(name);
-        updateRingtones();
-        ringtoneForm.reset();
-      }
-    });
-
-    function updateRingtones() {
-      ringtoneList.innerHTML = "";
-      ringtones.forEach((r, index) => {
-        const li = document.createElement("li");
-        li.textContent = r;
-        const del = document.createElement("button");
-        del.textContent = " ❌";
-        del.className = "text-red-600 ml-2";
-        del.onclick = () => {
-          ringtones.splice(index, 1);
-          updateRingtones();
-        };
-        li.appendChild(del);
-        ringtoneList.appendChild(li);
-      });
-    }
-
-    // Users CRUD with Active/Inactive
-    const userForm = document.getElementById("userForm");
-    const userTable = document.getElementById("userTable");
-    const users = [];
-
-    userForm.addEventListener("submit", e => {
-      e.preventDefault();
-      const name = document.getElementById("userName").value.trim();
-      const email = document.getElementById("userEmail").value.trim();
-      if (name && email) {
-        users.push({ name, email, active: true });
-        updateUsers();
-        userForm.reset();
-      }
-    });
-
-    function updateUsers() {
-      userTable.innerHTML = "";
-      users.forEach((user, index) => {
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-          <td class="p-2">${user.name}</td>
-          <td class="p-2">${user.email}</td>
-          <td class="p-2">
-            <span class="font-bold ${user.active ? 'text-green-600' : 'text-red-600'}">
-              ${user.active ? 'Active' : 'Inactive'}
-            </span>
-          </td>
-          <td class="p-2 space-x-2">
-            <button onclick="toggleStatus(${index})" class="text-blue-600">Toggle</button>
-            <button onclick="deleteUser(${index})" class="text-red-600">Delete</button>
-          </td>
-        `;
-        userTable.appendChild(tr);
-      });
-    }
-
-    function toggleStatus(index) {
-      users[index].active = !users[index].active;
-      updateUsers();
-    }
-
-    function deleteUser(index) {
-      users.splice(index, 1);
-      updateUsers();
-    }
   </script>
 </body>
 </html>
