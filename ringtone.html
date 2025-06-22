@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+
+  <!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -134,40 +135,4 @@ document.getElementById('userForm').addEventListener('submit', e => {
     e.target.reset();
   }
 });
-function updateUsers() {
-  const table = document.getElementById('userTable');
-  table.innerHTML = '';
-  users.forEach((u, i) => {
-    const row = document.createElement('tr');
-    row.innerHTML = `<td>${u.name}</td><td>${u.email}</td><td class="${u.active ? 'text-green-600' : 'text-red-600'}">${u.active ? 'Active' : 'Inactive'}</td><td><button onclick="toggleUser(${i})" class="text-blue-600">Toggle</button> <button onclick="removeUser(${i})" class="text-red-600 ml-2">Delete</button></td>`;
-    table.appendChild(row);
-  });
-}
-function toggleUser(i) {
-  users[i].active = !users[i].active;
-  updateUsers();
-}
-function removeUser(i) {
-  users.splice(i, 1);
-  updateUsers();
-}
 
-const admins = [
-  { name: 'Super Admin', email: 'admin@site.com', active: true },
-  { name: 'Support Admin', email: 'support@site.com', active: false }
-];
-const adminList = document.getElementById('adminList');
-function renderAdmins() {
-  adminList.innerHTML = '';
-  admins.forEach(a => {
-    const li = document.createElement('li');
-    li.className = 'bg-white p-3 rounded shadow flex justify-between';
-    li.innerHTML = `<span>${a.name} - ${a.email}</span><span class="${a.active ? 'text-green-600' : 'text-red-600'} font-semibold">${a.active ? 'Active' : 'Inactive'}</span>`;
-    adminList.appendChild(li);
-  });
-}
-renderAdmins();
-
-  </script>
-</body>
-</html>
