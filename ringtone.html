@@ -93,12 +93,6 @@
       font-weight: 600;
       background-color: rgba(255,255,255,0.2);
     }
-    .audio-player {
-      width: 100%;
-      background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);
-      border-radius: 6px;
-      margin-top: 12px;
-    }
     .status-indicator {
       display: inline-block;
       width: 10px;
@@ -186,36 +180,83 @@
       <!-- Dashboard Tab -->
       <div id="dashboard" class="tab-content active">
         <h1 class="text-2xl font-bold mb-6">Dashboard Overview</h1>
-        <!-- Add your Dashboard content here -->
+
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+          <div class="bg-white shadow-md rounded-lg p-6 flex items-center">
+            <div class="bg-indigo-100 p-4 rounded-full text-indigo-600 mr-4">
+              <i class="fas fa-music text-xl"></i>
+            </div>
+            <div>
+              <p class="text-sm text-gray-500">Total Ringtones</p>
+              <p class="text-xl font-semibold">120</p>
+            </div>
+          </div>
+
+          <div class="bg-white shadow-md rounded-lg p-6 flex items-center">
+            <div class="bg-green-100 p-4 rounded-full text-green-600 mr-4">
+              <i class="fas fa-users text-xl"></i>
+            </div>
+            <div>
+              <p class="text-sm text-gray-500">Total Users</p>
+              <p class="text-xl font-semibold">5876</p>
+            </div>
+          </div>
+
+          <div class="bg-white shadow-md rounded-lg p-6 flex items-center">
+            <div class="bg-yellow-100 p-4 rounded-full text-yellow-600 mr-4">
+              <i class="fas fa-user-shield text-xl"></i>
+            </div>
+            <div>
+              <p class="text-sm text-gray-500">Admins</p>
+              <p class="text-xl font-semibold">3</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Section -->
+        <div class="bg-white shadow-md rounded-lg p-6">
+          <h2 class="text-lg font-semibold mb-4">Recent Ringtones</h2>
+          <ul class="space-y-2">
+            <li class="flex justify-between text-sm text-gray-700">
+              <span>Sad Violin</span>
+              <span class="text-gray-400">2 days ago</span>
+            </li>
+            <li class="flex justify-between text-sm text-gray-700">
+              <span>Happy Tune</span>
+              <span class="text-gray-400">3 days ago</span>
+            </li>
+            <li class="flex justify-between text-sm text-gray-700">
+              <span>Alert Beep</span>
+              <span class="text-gray-400">5 days ago</span>
+            </li>
+          </ul>
+        </div>
       </div>
 
       <!-- Ringtones Tab -->
       <div id="ringtones" class="tab-content">
         <h1 class="text-2xl font-bold">Ringtones Management</h1>
-        <!-- Add your Ringtones content here -->
       </div>
 
       <!-- Users Tab -->
       <div id="users" class="tab-content">
         <h1 class="text-2xl font-bold">Users Management</h1>
-        <!-- Add your Users content here -->
       </div>
 
       <!-- Admins Tab -->
       <div id="admins" class="tab-content">
         <h1 class="text-2xl font-bold">Admins Section</h1>
-        <!-- Add your Admins content here -->
       </div>
 
       <!-- Helpdesk Tab -->
       <div id="helpdesk" class="tab-content">
         <h1 class="text-2xl font-bold">Helpdesk Support</h1>
-        <!-- Add your Helpdesk content here -->
       </div>
     </div>
   </div>
 
-  <!-- JavaScript for sidebar and tab switching -->
+  <!-- JavaScript -->
   <script>
     const menuButton = document.getElementById('menuButton');
     const sidebar = document.getElementById('sidebar');
@@ -258,3 +299,4 @@
   </script>
 </body>
 </html>
+   
